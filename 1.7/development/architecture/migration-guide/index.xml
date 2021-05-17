@@ -70,16 +70,5 @@ Access to a lot of data, ordered by column: this data can be simple (text) or mo
  Delete the old controller. Delete the old templates (delete the admin-dev/themes/default/template/controller/{name} folder. Delete the related &amp;ldquo;legacy tests&amp;rdquo;.  </description>
     </item>
     
-    <item>
-      <title>Testing</title>
-      <link>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/</guid>
-      <description>Testing You are encouraged to add both unit and functional tests for every new class you have created.
-You must add a smoke test (also called &amp;ldquo;survival&amp;rdquo;) for every new page you migrate.
-Smoke testing A smoke test is a really simple and basic test that ensure the page will load with the right HTTP code. This won&amp;rsquo;t ensure the page will works as expected but if the test fails, this ensure the page is not functional.</description>
-    </item>
-    
   </channel>
 </rss>

@@ -431,6 +431,9 @@
     <loc>https://devdocs.prestashop.com/1.7/development/internationalization/translation/</loc>
     <lastmod>2021-04-22T11:23:48+02:00</lastmod>
   </url><url>
+    <loc>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/unit/</loc>
+    <lastmod>2021-05-12T17:04:07+03:00</lastmod>
+  </url><url>
     <loc>https://devdocs.prestashop.com/1.7/contribute/contribution-guidelines/writing-a-good-commit-message/</loc>
     <lastmod>2020-08-20T17:02:26+02:00</lastmod>
   </url><url>
@@ -460,6 +463,9 @@
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/grid/columns-reference/action/</loc>
     <lastmod>2020-08-30T21:11:21+03:00</lastmod>
+  </url><url>
+    <loc>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/behat/</loc>
+    <lastmod>2021-05-17T10:16:05+03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/grid/columns-reference/bulk-action/</loc>
     <lastmod>2020-06-16T15:31:44+02:00</lastmod>
@@ -721,9 +727,6 @@
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/grid/columns-reference/severity-level/</loc>
     <lastmod>2020-06-16T15:31:44+02:00</lastmod>
-  </url><url>
-    <loc>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/</loc>
-    <lastmod>2019-02-05T19:23:59+01:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/uikit/</loc>
     <lastmod>2021-01-13T10:38:05+01:00</lastmod>
@@ -1178,6 +1181,9 @@
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/templates/</loc>
     <lastmod>2020-06-18T14:10:20+02:00</lastmod>
+  </url><url>
+    <loc>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/testing/</loc>
+    <lastmod>2021-05-12T17:04:07+03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/form/types-reference/text-with-length-counter/</loc>
     <lastmod>2020-06-16T15:31:44+02:00</lastmod>
