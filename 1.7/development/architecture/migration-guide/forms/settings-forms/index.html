@@ -21,16 +21,16 @@
     <title>Settings Forms :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1621329765" rel="stylesheet">
-    <link href="/css/syntax-github.css?1621329765" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1621329765" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1621329765" rel="stylesheet">
-    <link href="/css/auto-complete.css?1621329765" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1621332172" rel="stylesheet">
+    <link href="/css/syntax-github.css?1621332172" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1621332172" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1621332172" rel="stylesheet">
+    <link href="/css/auto-complete.css?1621332172" rel="stylesheet">
     
-    <link href="/style.css?1621329765" rel="stylesheet">
+    <link href="/style.css?1621332172" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1621329765"></script>
+    <script src="/js/jquery-3.3.1.min.js?1621332172"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1621329765"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1621329765"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1621332172"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1621332172"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1621329765"></script>
+<script type="text/javascript" src="/js/search.js?1621332172"></script>
 
     
   </div>
@@ -6005,6 +6005,27 @@
       <li data-nav-id="/1.7/modules/core-updates/1.7.7/" title="Changes in PrestaShop 1.7.7" class="dd-item ">
         <a href="/1.7/modules/core-updates/1.7.7/">
         Changes in 1.7.7
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/core-updates/1.7.8/" title="Changes in PrestaShop 1.7.8" class="dd-item ">
+        <a href="/1.7/modules/core-updates/1.7.8/">
+        Changes in 1.7.8
         
         </a>
     </li>
@@ -14419,6 +14440,21 @@
     
   
       
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
     
   
       
@@ -17438,21 +17474,22 @@
 <p>As an example, here&rsquo;s how the Administration page&rsquo;s Form Handler service is declared:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># /src/PrestaShopBundle/Resources/config/services/form/form_handler.yml</span><span class="w">
 </span><span class="w">
-</span><span class="w"></span><span class="nt">prestashop.adapter.administration.form_handler</span><span class="p">:</span><span class="w">
-</span><span class="w">  </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;PrestaShop\PrestaShop\Core\Form\FormHandler&#39;</span><span class="w">
-</span><span class="w">  </span><span class="nt">arguments</span><span class="p">:</span><span class="w">
-</span><span class="w">    </span>- <span class="s1">&#39;@=service(&#34;form.factory&#34;).createBuilder()&#39;</span><span class="w">
-</span><span class="w">    </span>- <span class="s1">&#39;@prestashop.core.hook.dispatcher&#39;</span><span class="w">
-</span><span class="w">    </span>- <span class="s1">&#39;@prestashop.adapter.administration.form_provider&#39;</span><span class="w">
-</span><span class="w">    </span>-<span class="w">
-</span><span class="w">      </span><span class="nt">&#39;general&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;PrestaShopBundle\Form\Admin\AdvancedParameters\Administration\GeneralType&#39;</span><span class="w">
-</span><span class="w">      </span><span class="nt">&#39;upload_quota&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;PrestaShopBundle\Form\Admin\AdvancedParameters\Administration\UploadQuotaType&#39;</span><span class="w">
-</span><span class="w">      </span><span class="nt">&#39;notifications&#39;</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;PrestaShopBundle\Form\Admin\AdvancedParameters\Administration\NotificationsType&#39;</span><span class="w">
-</span><span class="w">    </span>- <span class="s1">&#39;AdministrationPage&#39;</span><span class="w">
-</span></code></pre></div><p>Let&rsquo;s look at the arguments one by one:</p>
+</span><span class="w"></span><span class="nt">prestashop.adapter.administration.general.form_handler</span><span class="p">:</span><span class="w">
+</span><span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;PrestaShop\PrestaShop\Core\Form\Handler&#39;</span><span class="w">
+</span><span class="w">    </span><span class="nt">arguments</span><span class="p">:</span><span class="w">
+</span><span class="w">        </span>- <span class="s1">&#39;@form.factory&#39;</span><span class="w">
+</span><span class="w">        </span>- <span class="s1">&#39;@prestashop.core.hook.dispatcher&#39;</span><span class="w">
+</span><span class="w">        </span>- <span class="s1">&#39;@prestashop.adapter.administration.general.form_provider&#39;</span><span class="w">
+</span><span class="w">        </span>- <span class="s1">&#39;PrestaShopBundle\Form\Admin\Configure\AdvancedParameters\Administration\GeneralType&#39;</span><span class="w">
+</span><span class="w">        </span>- <span class="s1">&#39;AdministrationPageGeneral&#39;</span><span class="w">
+</span><span class="w">        </span>- <span class="s1">&#39;general&#39;</span><span class="w">
+</span></code></pre></div>
+<div class="notices note" >The class <code>PrestaShop\PrestaShop\Core\Form\Handler</code> has been added in 1.7.8.0. Previously, <code>PrestaShop\PrestaShop\Core\Form\FormHandler</code> was used.</div>
+
+<p>Let&rsquo;s look at the arguments one by one:</p>
 <ul>
 <li>
-<p><code>'@=service(&quot;form.factory&quot;).createBuilder()'</code></p>
+<p><code>'@form.factory'</code></p>
 <p>This is used to render the form. You can keep the default value.</p>
 </li>
 <li>
@@ -17464,12 +17501,15 @@
 <p>Here you need to specify your form&rsquo;s Data Provider.</p>
 </li>
 <li>
-<p>The fourth argument is an associative array containing the names and FQCN of the form types you want to render in your form.</p>
-<p><strong>Important:</strong> The names correspond to the data fields that will be loaded/saved to your Data Providers.</p>
+<p><code>'PrestaShopBundle\Form\Admin\Configure\AdvancedParameters\Administration\GeneralType'</code>is the FQCN of the form type you want to render in your form.</p>
 </li>
 <li>
-<p><code>'AdministrationPage'</code></p>
-<p>The last argument is the name used to generate the hooks.</p>
+<p><code>'AdministrationPageGeneral'</code></p>
+<p>This argument is the name used to generate the hooks.</p>
+</li>
+<li>
+<p><code>'general'</code></p>
+<p>The last argument is the name of the form.</p>
 </li>
 </ul>
 <h2 id="form-request-handling-in-controllers">Form request handling in Controllers</h2>
@@ -17558,9 +17598,9 @@
 <footer class="article-footer">
 	
 <div>
-  Last updated on August 31, 2020
+  Last updated on April 29, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/53dcb4fb59df56501ff589a447feb5e6b8f79ed1">"Split form-schema to 2 separate display and submit schemas." (53dcb4fb5)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/cc2fd1cdf53283f65393c4ece868463cdf673688">"Refactor tables" (cc2fd1cdf)</a>
   
 </div>
 
@@ -17581,19 +17621,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1621329765"></script>
-    <script src="/js/perfect-scrollbar.min.js?1621329765"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1621329765"></script>
-    <script src="/js/jquery.sticky.js?1621329765"></script>
-    <script src="/js/featherlight.min.js?1621329765"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1621329765"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1621329765"></script>
-    <script src="/js/learn.js?1621329765"></script>
-    <script src="/js/hugo-learn.js?1621329765"></script>
+    <script src="/js/clipboard.min.js?1621332172"></script>
+    <script src="/js/perfect-scrollbar.min.js?1621332172"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1621332172"></script>
+    <script src="/js/jquery.sticky.js?1621332172"></script>
+    <script src="/js/featherlight.min.js?1621332172"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1621332172"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1621332172"></script>
+    <script src="/js/learn.js?1621332172"></script>
+    <script src="/js/hugo-learn.js?1621332172"></script>
     
-    <script src="/main.js?1621329765"></script>
-    <link href="/mermaid/mermaid.css?1621329765" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1621329765"></script>
+    <script src="/main.js?1621332172"></script>
+    <link href="/mermaid/mermaid.css?1621332172" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1621332172"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
