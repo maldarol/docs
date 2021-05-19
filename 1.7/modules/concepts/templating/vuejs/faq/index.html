@@ -21,16 +21,16 @@
     <title>FAQ about Vue.js :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1621332176" rel="stylesheet">
-    <link href="/css/syntax-github.css?1621332176" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1621332176" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1621332176" rel="stylesheet">
-    <link href="/css/auto-complete.css?1621332176" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1621428995" rel="stylesheet">
+    <link href="/css/syntax-github.css?1621428995" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1621428995" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1621428995" rel="stylesheet">
+    <link href="/css/auto-complete.css?1621428995" rel="stylesheet">
     
-    <link href="/style.css?1621332176" rel="stylesheet">
+    <link href="/style.css?1621428995" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1621332176"></script>
+    <script src="/js/jquery-3.3.1.min.js?1621428995"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1621332176"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1621332176"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1621428995"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1621428995"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1621332176"></script>
+<script type="text/javascript" src="/js/search.js?1621428995"></script>
 
     
   </div>
@@ -11010,6 +11010,7 @@
         <li>
           <ul>
             <li><a href="#how-to-send-data-from-php-to-vuejs">How to send data from PHP to Vue.js?</a></li>
+            <li><a href="#how-to-send-data-from-symfony-controller-to-vuejs">How to send data from Symfony controller to Vue.js?</a></li>
             <li><a href="#how-to-run-several-vuejs-applications-on-the-same-page">How to run several Vue.js applications on the same page</a></li>
             <li><a href="#i-want-to-add-another-version-of-bootstrap--prestashop-ui-kit-of-my-application-in-the-back-office-how-to-avoid-conflicts-with-the-one-provided-by-prestashop">I want to add another version of Bootstrap / PrestaShop UI-Kit of my application in the Back-office, how to avoid conflicts with the one provided by PrestaShop?</a></li>
           </ul>
@@ -17450,6 +17451,69 @@ If other modules can be present on the same, prefix your names with the module n
             <span class="p">]</span>
         <span class="p">),</span>
     <span class="p">]);</span>
+</code></pre></div><h3 id="how-to-send-data-from-symfony-controller-to-vuejs">How to send data from Symfony controller to Vue.js?</h3>
+<p>PHP controller:</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="k">namespace</span> <span class="nx">Module\YourModule\Controller\Admin</span><span class="p">;</span>
+
+<span class="k">use</span> <span class="nx">PrestaShopBundle\Controller\Admin\FrameworkBundleAdminController</span><span class="p">;</span>
+
+<span class="k">class</span> <span class="nc">YourControllerNameController</span> <span class="k">extends</span> <span class="nx">FrameworkBundleAdminController</span>
+<span class="p">{</span>
+    <span class="k">public</span> <span class="k">function</span> <span class="nf">demoAction</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;@Modules/yourmodule/views/templates/admin/demo.html.twig&#39;</span><span class="p">,</span> <span class="p">[</span>
+            <span class="s1">&#39;yourModule&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;keyA&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;valueA&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;keyB&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;valueB&#39;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><p>Twig template:</p>
+<div class="highlight"><pre class="chroma"><code class="language-twig" data-lang="twig"><span class="cp">{%</span> <span class="k">extends</span> <span class="s1">&#39;@PrestaShop/Admin/layout.html.twig&#39;</span> <span class="cp">%}</span><span class="x">
+</span><span class="x"></span><span class="cp">{%</span> <span class="k">trans_default_domain</span> <span class="s2">&#34;Module.YourModule.Admin&#34;</span> <span class="cp">%}</span><span class="x">
+</span><span class="x">
+</span><span class="x"></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">stylesheets</span> <span class="cp">%}</span><span class="x">
+</span><span class="x">  </span><span class="c">{# include some external stylesheets #}</span><span class="x">
+</span><span class="x">  &lt;link rel=&#34;stylesheet&#34; href=&#34;https:/static.example.com/dummy/an-external-stylesheet-example.css&#34; type=&#34;text/css&#34; media=&#34;all&#34;&gt;
+</span><span class="x">  </span><span class="c">{# include some local stylesheets #}</span><span class="x">
+</span><span class="x">  &lt;link rel=&#34;stylesheet&#34; href=&#34;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;../modules/yourmodule/views/css/app.css&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&#34; type=&#34;text/css&#34; media=&#34;all&#34;&gt;
+</span><span class="x"></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x">
+</span><span class="x">
+</span><span class="x"></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span><span class="x">
+</span><span class="x">  &lt;div id=&#34;app&#34;&gt;&lt;/div&gt;
+</span><span class="x"></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x">
+</span><span class="x">
+</span><span class="x"></span><span class="cp">{%</span> <span class="k">block</span> <span class="nv">javascripts</span> <span class="cp">%}</span><span class="x">
+</span><span class="x">    </span><span class="cp">{{</span> <span class="nb">parent</span><span class="o">()</span> <span class="cp">}}</span><span class="x">
+</span><span class="x">
+</span><span class="x">    &lt;script&gt;
+</span><span class="x">      var yourModule = </span><span class="cp">{{</span> <span class="nv">yourModule</span><span class="o">|</span><span class="nf">json_encode</span><span class="o">|</span><span class="nf">raw</span> <span class="cp">}}</span><span class="x">
+</span><span class="x">    &lt;/script&gt;
+</span><span class="x">
+</span><span class="x">    </span><span class="c">{# include some external JavaScript #}</span><span class="x">
+</span><span class="x">    &lt;script src=&#34;https://static.example.com/dummy/an-external-javascript-example.js&#34;&gt;&lt;/script&gt;
+</span><span class="x">    
+</span><span class="x">    </span><span class="c">{# include some local JavaScript #}</span><span class="x">
+</span><span class="x">    &lt;script src=&#34;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;../modules/your-module/views/js/chunk-vendors.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&#34; async defer&gt;&lt;/script&gt;
+</span><span class="x">    &lt;script src=&#34;</span><span class="cp">{{</span> <span class="nv">asset</span><span class="o">(</span><span class="s1">&#39;../modules/your-module/views/js/app.js&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="x">&#34; async defer&gt;&lt;/script&gt;
+</span><span class="x"></span><span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span><span class="x">
+</span></code></pre></div><p>Use it in JavaScript, i.e. in your Vue Store:</p>
+<div class="highlight"><pre class="chroma"><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="p">{</span> <span class="nx">yourModule</span> <span class="p">}</span> <span class="o">=</span> <span class="nb">window</span><span class="p">;</span>
+<span class="kr">const</span> <span class="p">{</span> <span class="nx">keyA</span><span class="p">,</span> <span class="nx">keyB</span> <span class="p">}</span> <span class="o">=</span> <span class="nx">yourModule</span><span class="p">;</span>
+
+<span class="kr">export</span> <span class="k">default</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">keyA</span><span class="p">,</span>
+        <span class="nx">keyB</span><span class="p">,</span>
+        <span class="nx">yourModule</span>
+    <span class="p">},</span>
+    <span class="nx">getters</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">keyA</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">keyA</span><span class="p">,</span>
+        <span class="nx">keyB</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">keyB</span><span class="p">,</span>
+        <span class="nx">yourModule</span><span class="o">:</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">state</span><span class="p">.</span><span class="nx">yourModule</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </code></pre></div><h3 id="how-to-run-several-vuejs-applications-on-the-same-page">How to run several Vue.js applications on the same page</h3>
 <p>The only thing to consider is the div ID you want to hook your application on.</p>
 <p>By default, Vue.js creates your application with a <code>&lt;div id=&quot;app&quot;&gt;&lt;/div&gt;</code>. To avoid it colliding with other applications or modules, replace references to this ID in the template and JS development files with something more specific.</p>
@@ -17471,9 +17535,9 @@ If other modules can be present on the same, prefix your names with the module n
 <footer class="article-footer">
 	
 <div>
-  Last updated on April 8, 2021
+  Last updated on May 14, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/e77a5328ff69b19c488c1a99e8333dc8e8ab674d">"Introduce chapter about the integration of VueJS in an existing module" (e77a5328f)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/c2153143b82bd135f49a5c8382a4303648c51785">"Update src/content/1.7/modules/concepts/templating/vuejs/faq.md" (c2153143b)</a>
   
 </div>
 
@@ -17494,19 +17558,19 @@ If other modules can be present on the same, prefix your names with the module n
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1621332176"></script>
-    <script src="/js/perfect-scrollbar.min.js?1621332176"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1621332176"></script>
-    <script src="/js/jquery.sticky.js?1621332176"></script>
-    <script src="/js/featherlight.min.js?1621332176"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1621332176"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1621332176"></script>
-    <script src="/js/learn.js?1621332176"></script>
-    <script src="/js/hugo-learn.js?1621332176"></script>
+    <script src="/js/clipboard.min.js?1621428995"></script>
+    <script src="/js/perfect-scrollbar.min.js?1621428995"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1621428995"></script>
+    <script src="/js/jquery.sticky.js?1621428995"></script>
+    <script src="/js/featherlight.min.js?1621428995"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1621428995"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1621428995"></script>
+    <script src="/js/learn.js?1621428995"></script>
+    <script src="/js/hugo-learn.js?1621428995"></script>
     
-    <script src="/main.js?1621332176"></script>
-    <link href="/mermaid/mermaid.css?1621332176" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1621332176"></script>
+    <script src="/main.js?1621428995"></script>
+    <link href="/mermaid/mermaid.css?1621428995" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1621428995"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
