@@ -21,16 +21,16 @@
     <title>Notifications :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1622126571" rel="stylesheet">
-    <link href="/css/syntax-github.css?1622126571" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1622126571" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1622126571" rel="stylesheet">
-    <link href="/css/auto-complete.css?1622126571" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1622190626" rel="stylesheet">
+    <link href="/css/syntax-github.css?1622190626" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622190626" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622190626" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622190626" rel="stylesheet">
     
-    <link href="/style.css?1622126571" rel="stylesheet">
+    <link href="/style.css?1622190626" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1622126571"></script>
+    <script src="/js/jquery-3.3.1.min.js?1622190626"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1622126571"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1622126571"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1622190626"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622190626"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1622126571"></script>
+<script type="text/javascript" src="/js/search.js?1622190626"></script>
 
     
   </div>
@@ -17771,58 +17771,58 @@ translated into your language!</p>
 </dl>
 <h2 id="how-to-display-notifications">How to display notifications</h2>
 <p>In the &ldquo;Classic&rdquo; Theme, <a href="https://github.com/PrestaShop/PrestaShop/blob/1.7.6.0/themes/classic/templates/_partials/notifications.tpl">notifications are implemented as a partial template file</a>:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">&lt;aside id=&#34;notifications&#34;&gt;
-
-  {if $notifications.error}
-    {block name=&#39;notifications_error&#39;}
-      &lt;article class=&#34;notification notification-danger&#34; role=&#34;alert&#34; data-alert=&#34;danger&#34;&gt;
-        &lt;ul&gt;
-          {foreach $notifications.error as $notif}
-            &lt;li&gt;{$notif nofilter}&lt;/li&gt;
-          {/foreach}
-        &lt;/ul&gt;
-      &lt;/article&gt;
-    {/block}
-  {/if}
-
-  {if $notifications.warning}
-    {block name=&#39;notifications_warning&#39;}
-      &lt;article class=&#34;notification notification-warning&#34; role=&#34;alert&#34; data-alert=&#34;warning&#34;&gt;
-        &lt;ul&gt;
-          {foreach $notifications.warning as $notif}
-            &lt;li&gt;{$notif nofilter}&lt;/li&gt;
-          {/foreach}
-        &lt;/ul&gt;
-      &lt;/article&gt;
-    {/block}
-  {/if}
-
-  {if $notifications.success}
-    {block name=&#39;notifications_success&#39;}
-      &lt;article class=&#34;notification notification-success&#34; role=&#34;alert&#34; data-alert=&#34;success&#34;&gt;
-        &lt;ul&gt;
-          {foreach $notifications.success as $notif}
-            &lt;li&gt;{$notif nofilter}&lt;/li&gt;
-          {/foreach}
-        &lt;/ul&gt;
-      &lt;/article&gt;
-    {/block}
-  {/if}
-
-  {if $notifications.info}
-    {block name=&#39;notifications_info&#39;}
-      &lt;article class=&#34;notification notification-info&#34; role=&#34;alert&#34; data-alert=&#34;info&#34;&gt;
-        &lt;ul&gt;
-          {foreach $notifications.info as $notif}
-            &lt;li&gt;{$notif nofilter}&lt;/li&gt;
-          {/foreach}
-        &lt;/ul&gt;
-      &lt;/article&gt;
-    {/block}
-  {/if}
-
-&lt;/aside&gt;
-</code></pre></div><p>&hellip;and are then <a href="https://github.com/PrestaShop/PrestaShop/blob/1.7.6.0/themes/classic/templates/checkout/checkout.tpl#L46-L48">included in the template file</a>:</p>
+<div class="highlight"><pre class="chroma"><code class="language-smarty" data-lang="smarty"><span class="x">&lt;aside id=&#34;notifications&#34;&gt;
+</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$notifications.error</span><span class="cp">}</span><span class="x">
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;notifications_error&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">      &lt;article class=&#34;notification notification-danger&#34; role=&#34;alert&#34; data-alert=&#34;danger&#34;&gt;
+</span><span class="x">        &lt;ul&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">foreach</span> <span class="nv">$notifications.error</span> <span class="na">as</span> <span class="nv">$notif</span><span class="cp">}</span><span class="x">
+</span><span class="x">            &lt;li&gt;</span><span class="cp">{</span><span class="nv">$notif</span> <span class="na">nofilter</span><span class="cp">}</span><span class="x">&lt;/li&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x">
+</span><span class="x">        &lt;/ul&gt;
+</span><span class="x">      &lt;/article&gt;
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$notifications.warning</span><span class="cp">}</span><span class="x">
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;notifications_warning&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">      &lt;article class=&#34;notification notification-warning&#34; role=&#34;alert&#34; data-alert=&#34;warning&#34;&gt;
+</span><span class="x">        &lt;ul&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">foreach</span> <span class="nv">$notifications.warning</span> <span class="na">as</span> <span class="nv">$notif</span><span class="cp">}</span><span class="x">
+</span><span class="x">            &lt;li&gt;</span><span class="cp">{</span><span class="nv">$notif</span> <span class="na">nofilter</span><span class="cp">}</span><span class="x">&lt;/li&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x">
+</span><span class="x">        &lt;/ul&gt;
+</span><span class="x">      &lt;/article&gt;
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$notifications.success</span><span class="cp">}</span><span class="x">
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;notifications_success&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">      &lt;article class=&#34;notification notification-success&#34; role=&#34;alert&#34; data-alert=&#34;success&#34;&gt;
+</span><span class="x">        &lt;ul&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">foreach</span> <span class="nv">$notifications.success</span> <span class="na">as</span> <span class="nv">$notif</span><span class="cp">}</span><span class="x">
+</span><span class="x">            &lt;li&gt;</span><span class="cp">{</span><span class="nv">$notif</span> <span class="na">nofilter</span><span class="cp">}</span><span class="x">&lt;/li&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x">
+</span><span class="x">        &lt;/ul&gt;
+</span><span class="x">      &lt;/article&gt;
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">if</span> <span class="nv">$notifications.info</span><span class="cp">}</span><span class="x">
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;notifications_info&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">      &lt;article class=&#34;notification notification-info&#34; role=&#34;alert&#34; data-alert=&#34;info&#34;&gt;
+</span><span class="x">        &lt;ul&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">foreach</span> <span class="nv">$notifications.info</span> <span class="na">as</span> <span class="nv">$notif</span><span class="cp">}</span><span class="x">
+</span><span class="x">            &lt;li&gt;</span><span class="cp">{</span><span class="nv">$notif</span> <span class="na">nofilter</span><span class="cp">}</span><span class="x">&lt;/li&gt;
+</span><span class="x">          </span><span class="cp">{</span><span class="nf">/foreach</span><span class="cp">}</span><span class="x">
+</span><span class="x">        &lt;/ul&gt;
+</span><span class="x">      &lt;/article&gt;
+</span><span class="x">    </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">/if</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">&lt;/aside&gt;
+</span></code></pre></div><p>&hellip;and are then <a href="https://github.com/PrestaShop/PrestaShop/blob/1.7.6.0/themes/classic/templates/checkout/checkout.tpl#L46-L48">included in the template file</a>:</p>
 <div class="highlight"><pre class="chroma"><code class="language-smarty" data-lang="smarty"><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;notifications&#39;</span><span class="cp">}</span><span class="x">
 </span><span class="x">  </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;_partials/notifications.tpl&#39;</span><span class="cp">}</span><span class="x">
 </span><span class="x"></span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
@@ -17844,9 +17844,9 @@ translated into your language!</p>
 <footer class="article-footer">
 	
 <div>
-  Last updated on October 23, 2020
+  Last updated on May 28, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/995433e7e9eb726eeb5c498ff40f3d0c966ff083">"Remove references to Starter Theme" (995433e7e)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/32c1b0c4815bced1976023697b30fb0cc83c0a48">"correctly highlight smarty&#43;html syntax" (32c1b0c48)</a>
   
 </div>
 
@@ -17867,19 +17867,19 @@ translated into your language!</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1622126571"></script>
-    <script src="/js/perfect-scrollbar.min.js?1622126571"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1622126571"></script>
-    <script src="/js/jquery.sticky.js?1622126571"></script>
-    <script src="/js/featherlight.min.js?1622126571"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1622126571"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1622126571"></script>
-    <script src="/js/learn.js?1622126571"></script>
-    <script src="/js/hugo-learn.js?1622126571"></script>
+    <script src="/js/clipboard.min.js?1622190626"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622190626"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622190626"></script>
+    <script src="/js/jquery.sticky.js?1622190626"></script>
+    <script src="/js/featherlight.min.js?1622190626"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1622190626"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622190626"></script>
+    <script src="/js/learn.js?1622190626"></script>
+    <script src="/js/hugo-learn.js?1622190626"></script>
     
-    <script src="/main.js?1622126571"></script>
-    <link href="/mermaid/mermaid.css?1622126571" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1622126571"></script>
+    <script src="/main.js?1622190626"></script>
+    <link href="/mermaid/mermaid.css?1622190626" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622190626"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

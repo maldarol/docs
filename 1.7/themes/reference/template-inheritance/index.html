@@ -21,16 +21,16 @@
     <title>Template inheritance :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1622126576" rel="stylesheet">
-    <link href="/css/syntax-github.css?1622126576" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1622126576" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1622126576" rel="stylesheet">
-    <link href="/css/auto-complete.css?1622126576" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1622190633" rel="stylesheet">
+    <link href="/css/syntax-github.css?1622190633" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622190633" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622190633" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622190633" rel="stylesheet">
     
-    <link href="/style.css?1622126576" rel="stylesheet">
+    <link href="/style.css?1622190633" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1622126576"></script>
+    <script src="/js/jquery-3.3.1.min.js?1622190633"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1622126576"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1622126576"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1622190633"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622190633"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1622126576"></script>
+<script type="text/javascript" src="/js/search.js?1622190633"></script>
 
     
   </div>
@@ -17768,35 +17768,35 @@ only contains the differences from the template it extends.</p>
 <p>In a PrestaShop theme, many pages are very similar, for example template listing products: categories,
 new products, search results, and so on. All of them display a list of products so in PS 1.7 they all
 extend <code>catalog/listing/product-list.tpl</code> (which extends the main layout).</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">  {extends file=$layout}
-
-  {block name=&#39;content&#39;}
-    &lt;section id=&#34;main&#34;&gt;
-
-      {block name=&#39;product_list_header&#39;}
-        &lt;h2 class=&#34;h2&#34;&gt;{$listing.label}&lt;/h2&gt;
-      {/block}
-
-      {block name=&#39;product_list&#39;}
-        {include file=&#39;catalog/_partials/products.tpl&#39; listing=$listing}
-      {/block}
-
-    &lt;/section&gt;
-  {/block}
-</code></pre></div><p>The template will show a title and a list of products underneath. For category page, we want a nice
+<div class="highlight"><pre class="chroma"><code class="language-smarty" data-lang="smarty"><span class="x">  </span><span class="cp">{</span><span class="nf">extends</span> <span class="na">file</span><span class="o">=</span><span class="nv">$layout</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;content&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">    &lt;section id=&#34;main&#34;&gt;
+</span><span class="x">
+</span><span class="x">      </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;product_list_header&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">        &lt;h2 class=&#34;h2&#34;&gt;</span><span class="cp">{</span><span class="nv">$listing.label</span><span class="cp">}</span><span class="x">&lt;/h2&gt;
+</span><span class="x">      </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">      </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;product_list&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">        </span><span class="cp">{</span><span class="nf">include</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;catalog/_partials/products.tpl&#39;</span> <span class="na">listing</span><span class="o">=</span><span class="nv">$listing</span><span class="cp">}</span><span class="x">
+</span><span class="x">      </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">    &lt;/section&gt;
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span></code></pre></div><p>The template will show a title and a list of products underneath. For category page, we want a nice
 description with an cover image. So we can simply override the <em>product_list_header</em></p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">  {extends file=&#39;catalog/listing/product-list.tpl&#39;}
-
-  {block name=&#39;product_list_header&#39;}
-
-    &lt;h1&gt;{$category.name}&lt;/h1&gt;
-    &lt;div class=&#34;category-cover&#34;&gt;
-      &lt;img src=&#34;{$category.image.large.url}&#34; alt=&#34;{$category.image.legend}&#34;&gt;
-    &lt;/div&gt;
-    &lt;div id=&#34;category-description&#34;&gt;{$category.description nofilter}&lt;/div&gt;
-
-  {/block}
-</code></pre></div><p>This reduce code to the minimum, without any repetition.</p>
+<div class="highlight"><pre class="chroma"><code class="language-smarty" data-lang="smarty"><span class="x">  </span><span class="cp">{</span><span class="nf">extends</span> <span class="na">file</span><span class="o">=</span><span class="s1">&#39;catalog/listing/product-list.tpl&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">block</span> <span class="na">name</span><span class="o">=</span><span class="s1">&#39;product_list_header&#39;</span><span class="cp">}</span><span class="x">
+</span><span class="x">
+</span><span class="x">    &lt;h1&gt;</span><span class="cp">{</span><span class="nv">$category.name</span><span class="cp">}</span><span class="x">&lt;/h1&gt;
+</span><span class="x">    &lt;div class=&#34;category-cover&#34;&gt;
+</span><span class="x">      &lt;img src=&#34;</span><span class="cp">{</span><span class="nv">$category.image.large.url</span><span class="cp">}</span><span class="x">&#34; alt=&#34;</span><span class="cp">{</span><span class="nv">$category.image.legend</span><span class="cp">}</span><span class="x">&#34;&gt;
+</span><span class="x">    &lt;/div&gt;
+</span><span class="x">    &lt;div id=&#34;category-description&#34;&gt;</span><span class="cp">{</span><span class="nv">$category.description</span> <span class="na">nofilter</span><span class="cp">}</span><span class="x">&lt;/div&gt;
+</span><span class="x">
+</span><span class="x">  </span><span class="cp">{</span><span class="nf">/block</span><span class="cp">}</span><span class="x">
+</span></code></pre></div><p>This reduce code to the minimum, without any repetition.</p>
 
 
 
@@ -17804,9 +17804,9 @@ description with an cover image. So we can simply override the <em>product_list_
 <footer class="article-footer">
   
 <div>
-  Last updated on July 10, 2020
+  Last updated on May 28, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/1963c9f9a9b10d5dab728fbd46e543ba1fe92404">"Fix wrong use of blockquote instead of notice" (1963c9f9a)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/32c1b0c4815bced1976023697b30fb0cc83c0a48">"correctly highlight smarty&#43;html syntax" (32c1b0c48)</a>
   
 </div>
 
@@ -17827,19 +17827,19 @@ description with an cover image. So we can simply override the <em>product_list_
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1622126576"></script>
-    <script src="/js/perfect-scrollbar.min.js?1622126576"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1622126576"></script>
-    <script src="/js/jquery.sticky.js?1622126576"></script>
-    <script src="/js/featherlight.min.js?1622126576"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1622126576"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1622126576"></script>
-    <script src="/js/learn.js?1622126576"></script>
-    <script src="/js/hugo-learn.js?1622126576"></script>
+    <script src="/js/clipboard.min.js?1622190633"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622190633"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622190633"></script>
+    <script src="/js/jquery.sticky.js?1622190633"></script>
+    <script src="/js/featherlight.min.js?1622190633"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1622190633"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622190633"></script>
+    <script src="/js/learn.js?1622190633"></script>
+    <script src="/js/hugo-learn.js?1622190633"></script>
     
-    <script src="/main.js?1622126576"></script>
-    <link href="/mermaid/mermaid.css?1622126576" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1622126576"></script>
+    <script src="/main.js?1622190633"></script>
+    <link href="/mermaid/mermaid.css?1622190633" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622190633"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

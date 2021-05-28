@@ -414,7 +414,7 @@
     <lastmod>2020-12-15T17:17:31+01:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/templates/templates-layouts/</loc>
-    <lastmod>2020-09-18T20:32:48+01:00</lastmod>
+    <lastmod>2021-05-28T01:10:41+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/templating-with-twig/</loc>
     <lastmod>2020-08-30T20:28:25+03:00</lastmod>
@@ -501,7 +501,7 @@
     <lastmod>2020-09-10T20:21:40+03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/templates/head/</loc>
-    <lastmod>2020-10-23T11:49:14+02:00</lastmod>
+    <lastmod>2021-05-28T01:10:41+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/modules/concepts/mail-templates/add-a-layout-from-module/</loc>
     <lastmod>2020-06-16T15:31:44+02:00</lastmod>
@@ -591,7 +591,7 @@
     <lastmod>2021-05-11T12:22:46+03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/templates/notifications/</loc>
-    <lastmod>2020-10-23T11:49:14+02:00</lastmod>
+    <lastmod>2021-05-28T01:10:41+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/modules/payment/</loc>
     <lastmod>2020-06-16T15:31:44+02:00</lastmod>
@@ -1133,7 +1133,7 @@
     <lastmod>2020-08-30T20:28:25+03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/smarty-extensions/</loc>
-    <lastmod>2020-08-30T21:11:21+03:00</lastmod>
+    <lastmod>2021-05-28T01:10:41+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/smarty-helpers/</loc>
     <lastmod>2020-08-30T21:11:21+03:00</lastmod>
@@ -1204,7 +1204,7 @@
     <lastmod>2020-09-15T10:40:15+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/template-inheritance/</loc>
-    <lastmod>2020-07-10T18:20:03+02:00</lastmod>
+    <lastmod>2021-05-28T01:10:41+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/templates/</loc>
     <lastmod>2020-06-18T14:10:20+02:00</lastmod>
