@@ -21,16 +21,16 @@
     <title>Configuration forms :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1622650384" rel="stylesheet">
-    <link href="/css/syntax-github.css?1622650384" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1622650384" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1622650384" rel="stylesheet">
-    <link href="/css/auto-complete.css?1622650384" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1622802957" rel="stylesheet">
+    <link href="/css/syntax-github.css?1622802957" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1622802957" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1622802957" rel="stylesheet">
+    <link href="/css/auto-complete.css?1622802957" rel="stylesheet">
     
-    <link href="/style.css?1622650384" rel="stylesheet">
+    <link href="/style.css?1622802957" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1622650384"></script>
+    <script src="/js/jquery-3.3.1.min.js?1622802957"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1622650384"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1622650384"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1622802957"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1622802957"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1622650384"></script>
+<script type="text/javascript" src="/js/search.js?1622802957"></script>
 
     
   </div>
@@ -17744,7 +17744,13 @@
 
 
 <p>The Back Office contains multiple configuration forms that control settings of the shop. When multistore is enabled, Back Office user must be able to modify these settings either for all shops, for a group of shop or for a single shop.</p>
-<p>Since Prestashop 1.7.8, when multistore is enabled, migrated configuration forms can display a checkbox before fields in order to specify if the configuration value is set for the current context shop/group, or if it is a value inherited from all contexts, or from a shop group.</p>
+<p>Since Prestashop 1.7.8, when multistore is enabled, migrated configuration forms can display a checkbox before fields in order to specify if the configuration value is set for the current context shop/group, or if it is a value inherited from all contexts, or from a shop group. It will also display a dropdown at the right of the field, telling you wether this field is customized or inherits its value from its parent context. Here is how it looks like:</p>
+<figure>
+    <img src="../../img/multistore-field-dropdown.png"/> <figcaption>
+            <h4>Multistore configuration form dropdown</h4>
+        </figcaption>
+</figure>
+
 <p>If you are building a configuration form and you want the form to be aware of the current multistore context, then you must make your form compatible with multistore checkboxes. This is made possible thanks to <a href="https://symfony.com/doc/3.4/form/create_form_type_extension.html">Symfony&rsquo;s form extensions mechanism</a>.</p>
 <h2 id="creating-a-multistore-compatible-configuration-form">Creating a multistore compatible configuration form</h2>
 
@@ -17795,7 +17801,7 @@
 <span class="p">);</span>
 </code></pre></div><p>Doing this will have several effects:</p>
 <ul>
-<li>Each field implementing the <code>multistore_configuration_key</code> will have a multistore checkbox before them;</li>
+<li>Each field implementing the <code>multistore_configuration_key</code> will have a multistore checkbox on its left and a multistore dropdown on its right;</li>
 <li>Checkboxes will automatically be checked or not depending on the configuration for the current shop context;</li>
 <li>When the configuration value is inherited, the checkbox will be unchecked, and the field will be disabled and greyed out;</li>
 <li>Thanks to the javascript component, checking or unchecking a checkbox will enable/disable the field for the current shop context.</li>
@@ -17852,9 +17858,9 @@
 <footer class="article-footer">
   
 <div>
-  Last updated on May 21, 2021
+  Last updated on June 3, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/6a0ba2b9210caf2d67c8067a599743f39650a3e9">"add link to multistore configuration form PR" (6a0ba2b92)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/8a0236d1e0a7a935fe07a4aaae24122edfda9470">"fix capture title" (8a0236d1e)</a>
   
 </div>
 
@@ -17875,19 +17881,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1622650384"></script>
-    <script src="/js/perfect-scrollbar.min.js?1622650384"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1622650384"></script>
-    <script src="/js/jquery.sticky.js?1622650384"></script>
-    <script src="/js/featherlight.min.js?1622650384"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1622650384"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1622650384"></script>
-    <script src="/js/learn.js?1622650384"></script>
-    <script src="/js/hugo-learn.js?1622650384"></script>
+    <script src="/js/clipboard.min.js?1622802957"></script>
+    <script src="/js/perfect-scrollbar.min.js?1622802957"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1622802957"></script>
+    <script src="/js/jquery.sticky.js?1622802957"></script>
+    <script src="/js/featherlight.min.js?1622802957"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1622802957"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1622802957"></script>
+    <script src="/js/learn.js?1622802957"></script>
+    <script src="/js/hugo-learn.js?1622802957"></script>
     
-    <script src="/main.js?1622650384"></script>
-    <link href="/mermaid/mermaid.css?1622650384" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1622650384"></script>
+    <script src="/main.js?1622802957"></script>
+    <link href="/mermaid/mermaid.css?1622802957" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1622802957"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
