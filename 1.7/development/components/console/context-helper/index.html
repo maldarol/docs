@@ -8,17 +8,17 @@
 <meta name="twitter:image" content="https://devdocs.prestashop.com/images/social-cover.jpg" />
 <meta name="twitter:site" content="@prestashop" />
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Migration project and strategy" />
+<meta name="twitter:title" content="Context helper" />
 <meta name="twitter:description" content="Learn how to extend, modify and test PrestaShop, create modules, themes, and more.">
 <meta property="og:image" content="https://devdocs.prestashop.com/images/social-cover.jpg" />
 <meta property="og:site_name" content="PrestaShop" />
-<meta property="og:title" content="Migration project and strategy" />
+<meta property="og:title" content="Context helper" />
 <meta property="og:description" content="Learn how to extend, modify and test PrestaShop, create modules, themes, and more.">
 <meta name="author" content="PrestaShop">
 
     <link rel="icon" href="/images/preston-logo@2x.png" type="image/png">
 
-    <title>Migration project and strategy :: PrestaShop Developer Documentation</title>
+    <title>Context helper :: PrestaShop Developer Documentation</title>
 
     
     <link href="/css/font-awesome.min.css?1623070060" rel="stylesheet">
@@ -44,7 +44,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/1.7/development/architecture/migration-guide/strategy/">
+  <body class="" data-url="/1.7/development/components/console/context-helper/">
     <nav id="sidebar" class="">
 
 
@@ -533,7 +533,7 @@
     
     
     <li data-nav-id="/1.7/development/architecture/" title="The PrestaShop architecture" class="dd-item
-        parent
+        
         
         
         isParent
@@ -546,7 +546,7 @@
           
 
           
-            <i class="fa fa-angle-up"></i>
+            <i class="fa fa-angle-down"></i>
           
       </a>
       
@@ -786,7 +786,7 @@
     
     
     <li data-nav-id="/1.7/development/architecture/migration-guide/" title="How to migrate Back Office pages to Symfony" class="dd-item
-        parent
+        
         
         
         isParent
@@ -799,7 +799,7 @@
           
 
           
-            <i class="fa fa-angle-up"></i>
+            <i class="fa fa-angle-down"></i>
           
       </a>
       
@@ -821,7 +821,7 @@
  
   
     
-      <li data-nav-id="/1.7/development/architecture/migration-guide/strategy/" title="Migration project and strategy" class="dd-item active currentPage">
+      <li data-nav-id="/1.7/development/architecture/migration-guide/strategy/" title="Migration project and strategy" class="dd-item ">
         <a href="/1.7/development/architecture/migration-guide/strategy/">
         Migration project and strategy
         
@@ -1849,7 +1849,7 @@
     
     
     <li data-nav-id="/1.7/development/components/" title="PrestaShop components" class="dd-item
-        
+        parent
         
         
         isParent
@@ -1862,7 +1862,7 @@
           
 
           
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-up"></i>
           
       </a>
       
@@ -1939,7 +1939,7 @@
     
     
     <li data-nav-id="/1.7/development/components/console/" title="The Console component" class="dd-item
-        
+        parent
         
         
         isParent
@@ -1952,7 +1952,7 @@
           
 
           
-            <i class="fa fa-angle-down"></i>
+            <i class="fa fa-angle-up"></i>
           
       </a>
       
@@ -1972,7 +1972,7 @@
  
   
     
-      <li data-nav-id="/1.7/development/components/console/context-helper/" title="Context helper" class="dd-item ">
+      <li data-nav-id="/1.7/development/components/console/context-helper/" title="Context helper" class="dd-item active currentPage">
         <a href="/1.7/development/components/console/context-helper/">
         Context helper
         
@@ -11164,7 +11164,7 @@
       
       
       <div id="top-github-link">
-        <a class="github-link" title='Improve this page' href="https://github.com/PrestaShop/docs/edit/master/src/content/1.7/development/architecture/migration-guide/strategy.md" target="blank">
+        <a class="github-link" title='Improve this page' href="https://github.com/PrestaShop/docs/edit/master/src/content/1.7/development/components/console/context-helper.md" target="blank">
           <i class="fa fa-pencil"></i>
           <span id="top-github-link-text">Improve this page</span>
         </a>
@@ -11205,7 +11205,7 @@
               
             
             
-              <a href='/'>Home</a> > <a href='/1.7/'>PrestaShop 1.7</a> > <a href='/1.7/development/'>Core Reference</a> > <a href='/1.7/development/architecture/'>Architecture</a> > <a href='/1.7/development/architecture/migration-guide/'>Migration guide</a> > Migration project and strategy
+              <a href='/'>Home</a> > <a href='/1.7/'>PrestaShop 1.7</a> > <a href='/1.7/development/'>Core Reference</a> > <a href='/1.7/development/components/'>Components</a> > <a href='/1.7/development/components/console/'>Console</a> > Context helper
             
           
             
@@ -11236,26 +11236,7 @@
     <div id="toc-title">Table of Contents</div>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#different-kind-of-pages">Different kind of pages</a></li>
-    <li><a href="#where-we-started-from">Where we started from</a></li>
-    <li><a href="#the-beginning-of-the-migration-project-configuration-form">The beginning of the Migration project: Configuration Form</a></li>
-    <li><a href="#phase-2-listings">Phase 2: listings</a>
-      <ul>
-        <li>
-          <ul>
-            <li><a href="#how-grid-interacts-with-the-legacy-model">How Grid interacts with the legacy Model</a></li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-    <li><a href="#phase-3-cqrscqrs">Phase 3: <a href="HAHAHUGOSHORTCODE-s6-HBHB">CQRS</a></a></li>
-    <li><a href="#phase-4--addedit-form-pages">Phase 4 : Add/Edit Form pages</a></li>
-    <li><a href="#form-theme">Form Theme</a></li>
-    <li><a href="#towards-a-core-domain">Towards a Core domain</a>
-      <ul>
-        <li><a href="#migration-as-an-introduction-to-the-core">Migration as an introduction to the Core</a></li>
-      </ul>
-    </li>
+    <li><a href="#cli-context-helper">CLI Context helper</a></li>
   </ul>
 </nav>
 
@@ -11548,6 +11529,680 @@
     
       
         
+      
+      
+      
+      
+        
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+        
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+        
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+        
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+        
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+        
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+        
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+    
+  
+      
+        
+    
+    
+      
+        
         
       
       
@@ -11588,81 +12243,6 @@
       
 
       
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
     
   
       
@@ -11675,8 +12255,6 @@
       
       
       
-      
-        
       
       
 
@@ -11727,603 +12305,6 @@
       
 
       
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-        
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-        
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-        
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-        
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-        
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-    
-  
-      
-    
-  
-      
-    
-  
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-        
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
-    
-  
-      
-        
-    
-    
-      
-        
-      
-      
-      
-      
-      
-
-      
     
   
       
@@ -17775,7 +17756,7 @@
 
   
   
-  <a class="nav nav-next" href="/1.7/development/architecture/migration-guide/templating-with-twig/" title="Templating with Twig" style="margin-right: 0px;">
+  <a class="nav nav-next" href="/1.7/development/components/console/prestashop-licenses-update/" title="prestashop:licenses:update" style="margin-right: 0px;">
     <i class="fa fa-chevron-right"></i>
     Next article
   </a>
@@ -17795,132 +17776,37 @@
 
 
 
-<p>This is a summary of the current Migration Strategy. It provides an overview of our current vision, in the end of this year 2020, of the Symfony Migration project.</p>
-<h1 id="different-kind-of-pages">Different kind of pages</h1>
-<p>Back-Office pages can be classified in four categories:</p>
-<ol>
-<li><a href="/1.7/development/architecture/migration-guide/forms/settings-forms/">Configuration / Settings Form pages</a></li>
-</ol>
-<p>These pages allow the user to modify configuration settings in PrestaShop.</p>
-<ol start="2">
-<li><a href="/1.7/development/components/grid/">Listing pages</a></li>
-</ol>
-<p>These pages allow the user to browse PrestaShop content using listings. These listings usually provide some actions the user can trigger, such as &ldquo;enable/disable&rdquo;, &ldquo;delete&rdquo;, &ldquo;bulk delete&rdquo;.</p>
-<ol start="3">
-<li><a href="/1.7/development/architecture/migration-guide/forms/crud-forms/">Add/Edit Form pages</a></li>
-</ol>
-<p>These pages allow the user to create or edit records from PrestaShop data model (example: create/edit customers).</p>
-<ol start="4">
-<li>Other pages</li>
-</ol>
-<p>There are some pages that are unique: Carriers Edit page, Dashboard, Customer Service page &hellip;</p>
-<p>Sometimes a page will have mixed content. For example there are pages that provide two listings or one listing and one configuration form.</p>
-<h1 id="where-we-started-from">Where we started from</h1>
-<p>In legacy pages, most of the time, these Back-office pages were structured following standard <a href="/1.7/basics/introduction/">MVC PrestaShop model</a>:</p>
-<ul>
-<li>smarty templates (View)</li>
-<li>a Controller with sometimes a lot of logic in it (Controller)</li>
-<li>some business logic classes (Model)</li>
-<li>ObjectModel classes with lot of logic in it (Model)</li>
-</ul>
-<p>We believe PrestaShop project has grown too big to follow this 3-layers model, rather fitted for small applications. We have chosen to introduce more architecture layers.</p>
-<h1 id="the-beginning-of-the-migration-project-configuration-form">The beginning of the Migration project: Configuration Form</h1>
-<p>The Migration project started by migrating <a href="/1.7/development/architecture/migration-guide/forms/settings-forms/">Configuration Form pages</a>.</p>
-<p>The chosen structure to handle such pages was the following:</p>
-<ol>
-<li>A View layer: Twig template, rendering manually the Symfony form</li>
-<li>A Controller layer: Symfony Controller empty of business logic (following the <a href="https://symfony.com/doc/4.0/best_practices/controllers.html">&ldquo;Thin Controller, Fat Model&rdquo;</a> principle), in charge of controlling the View, formatting data, handling security and routing</li>
-<li>In Model layer: Symfony Form is built and managed by a FormHandler</li>
-<li>Also part of the Model layer, DataProvider is in charge of data retrieval and saving the data</li>
-</ol>
-<p>Since the DataProvider interacts with ObjectModel, it belongs to <a href="/1.7/development/architecture/file-structure/understanding-src-folder/">Adapter namespace</a>.</p>
-<h1 id="phase-2-listings">Phase 2: listings</h1>
-<p>For migrating Listing pages, the <a href="/1.7/development/components/grid/">Grid component</a> was built.</p>
-<p>The chosen layer structure to handle such pages was the following:</p>
-<ol>
-<li>View layer: Twig template, using Grid Twig template</li>
-<li>Symfony Controller layer empty of business logic, in charge of controlling the View, formatting data, handling security and routing</li>
-<li>In Application layer, we have the Grid component which requires a GridDefinition configures the Grid and a GridFactory to build it</li>
-<li>Data is provided by a QueryBuilder, able to handle filters for search requests. This is the Model layer.</li>
-</ol>
-<p>If the Grid provides some actions, they are handled by dedicated Controller Actions.</p>
-<h3 id="how-grid-interacts-with-the-legacy-model">How Grid interacts with the legacy Model</h3>
-<p>The QueryBuilder ignores ObjectModel and use a Doctrine Connection to query directly the database. So there is no interaction with legacy code.</p>
-<p>However the Grid Actions use ObjectModel, for example to enable/disable a Category status. In the beginning we used Adapter classes to handle these, but we could see that once again we were coupling legacy code with migrated code.</p>
-<p>This is when we decided to introduce <a href="/1.7/development/architecture/domain/cqrs/">CQRS</a>.</p>
-<h1 id="phase-3-cqrscqrs">Phase 3: <a href="/1.7/development/architecture/domain/cqrs/">CQRS</a></h1>
-<p>We wanted to build a strong frontier between migrated code and legacy code. Since re-writing all the code would be too long, we needed to continue relying on the business logic legacy code to power PrestaShop.</p>
-<p>We however wanted to interact with it in a way that would allow us, in the future, to easily unplug it and replace it with a new implementation.</p>
-<p>So we decided to introduce <a href="/1.7/development/architecture/domain/cqrs/">CQRS</a> and <a href="https://en.wikipedia.org/wiki/Domain-driven_design">a Domain</a>.</p>
-<p>CQRS was introduced into PrestaShop architecture in the following manner:</p>
-<p>The Application layer (Forms, Controllers, Views &hellip;) dispatches <a href="/1.7/development/architecture/domain/cqrs/">Queries and Commands</a> to the Domain to be handled, unaware of the inner workings of this domain.</p>
-<p>Inside the domain are QueryHandlers and CommandHandlers that handle dispatched Queries and Commands. For now, they do use PrestaShop legacy business logic to handle it. This means classes like ObjectModel, Cart, Product are still being used inside migrated pages.</p>
-<p>The communication between the two layers is performed by CommandBus and QueryBus, which carry the Commands and Queries.</p>
-<p>Since the Handlers use legacy logic, they belong to the <a href="/1.7/development/architecture/file-structure/understanding-src-folder/">Adapter namespace</a>. In the future they will be replaced with new implementations. The replacement will be very easy: a new Handler will be plugged in, previous Handler will be removed. No modification will be required in the code.</p>
-<p>So the structure for a Grid action, using CQRS, is the following:</p>
-<ol>
-<li>Symfony Controller layer empty of business logic, in charge of controlling the View, formatting data, handling security and routing</li>
-<li>The Controller dispatches a Command to perform the action</li>
-<li>Command goes through the CommandBus and is handled by a Handler</li>
-<li>Handler, in Domain (= Model layer) performs the business logic needed</li>
-</ol>
-<p>So &ldquo;migrating a Grid action&rdquo; means to &ldquo;move the legacy logic into a Handler and building a Symfony layer on top of it&rdquo;</p>
-<h1 id="phase-4--addedit-form-pages">Phase 4 : Add/Edit Form pages</h1>
-<p>These pages are form leveraging the concepts of CQRS.</p>
-<p><a href="/1.7/development/architecture/migration-guide/forms/crud-forms/">You can read more about it by clicking on this link</a>.</p>
-<ol>
-<li>View layer: Twig template, rendering manually the Symfony form</li>
-<li>Symfony Controller layer empty of business logic, in charge of controlling the View, formatting data, handling security and routing</li>
-<li>Application layer:</li>
-</ol>
-<ul>
-<li>Symfony Form is built by a FormBuilder and managed by a FormHandler</li>
-<li>a FormDataProvider is in charge of data retrieval</li>
-<li>a FormDataHandler is in charge of validating and dispatching a Command to perform the action</li>
-</ul>
-<ol start="4">
-<li>Domain / Model layer:</li>
-</ol>
-<ul>
-<li>Command goes through the CommandBus and is handled by a Handler</li>
-<li>Handler performs the business logic needed</li>
-</ul>
-<p>So &ldquo;migrating a legacy Add/Edit page&rdquo; means to &ldquo;move the legacy logic into a Handler and building a Symfony Form on top of it with its management logic&rdquo;.</p>
-<h1 id="form-theme">Form Theme</h1>
-<p>We dont want to render manually Form inputs, so we now aim to build a Twig Form Theme allowing us to render all of our Symfony forms with a single block</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">{{ form_widget(form) }}
-</code></pre></div><h1 id="towards-a-core-domain">Towards a Core domain</h1>
-<p>Between phase 1 and phase 4, two years passed. Two years where we experimented, explored, struggled and we got the hang of what was needed for PrestaShop to move forward.</p>
-<p>We now have a better understanding of what the direction we are aiming for. We now know we want to build a full Core Domain for the future of PrestaShop.</p>
-<p>The <a href="https://build.prestashop.com/news/prestashop-in-2019-and-beyond-part-3-the-future-architecture/#our-proposal-for-a-future-architecture">future PrestaShop architecture</a> is based on 5 key elements:</p>
-<figure>
-    <img src="../../img/architecture-overview-future.jpg"/> <figcaption>
-            <h4>Future architecture overview</h4>
-        </figcaption>
-</figure>
+<h1 id="cli-context-helper">CLI Context helper</h1>
+<p>The legacy framework of PrestaShop was not built to be run from a Command Line.</p>
+<p>The consequence is that many of its functions require specific data to be properly initialized, and these parts are being initialized when an HTTP request is handled by the framework.</p>
+<p>In order to use legacy classes and components in Console, you need to initialize these parts. To make it easy, a <a href="https://github.com/PrestaShop/PrestaShop/pull/21125">LegacyContextLoader helper class</a> was introduced in version <code>1.7.8.0</code>.</p>
+<p>It loads the needed property in <code>Context</code> using, when needed, a fake Employee or Controller instance.</p>
+<p>It is available as a Symfony service <code>prestashop.adapter.legacy_context_loader</code>.</p>
+<p>Example</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">MyCustomCommand extends ContainerAwareCommand
+{
 
-<ol>
-<li>Core Domain</li>
-<li>Front-end applications</li>
-<li>Contracts and Tools (SDKs)</li>
-<li>APIs</li>
-<li>Extensions</li>
-</ol>
-<p>The <strong>Core</strong> sits in the back-end and is at the center of it all. It accounts for all the business needs and use cases that PrestaShop is capable of doing (managing products, shopping carts, orders, etc.). The Core is <em>domain-oriented</em>, meaning that it is built around business use cases, expressed in an <a href="https://enterprisecraftsmanship.com/posts/ubiquitous-language-naming/">ubiquitous language</a>. The Core is also master of its own Domain; in  order to let it be the guardian of system-wide coherence, it has to be isolated from other services and be the only one capable of performing state transitions. Other services can only interact with the Core through well-defined interfaces, that we call the Core API. Incidentally, this also means that Core behavior can be <em>extended</em>, not <em>modified</em>, by other services or at least not in a way that it puts system coherence at risk. In addition, the Core is designed to be easily testable and is covered by automated tests.</p>
-<p>In the future architecture, the Back Office (BO) and the Front Office (FO) are independent <strong>front-end applications</strong>, each one running entirely on the browser. They are fully component-based (our framework of choice is <a href="https://vuejs.org/">VueJs</a>, and built using separate toolsets called <strong>Software Development Kits</strong> (SDKs): one for the FO, one for the BO. These SDKs would not only include reusable components, but also bidirectional communication channels based on stable <strong>contracts</strong>, both within the front-end application (events) as well as with the back-end (through APIs). The BO SDK also integrates the UI Kit, which provides an uniform style for the whole Back Office.</p>
-<p>The Core and FO/BO applications communicate through <strong>two separate APIs</strong>, namely the FO API and the BO API. These APIs serve two distinct purposes: while the FO API is public and designed to serve customer-facing applications (e.g. the FO application, but also other custom clients, like mobile apps or Point of Sales in physical stores), the BO API is protected by access rights (much like the current Web services) and is meant to power the BO application, as well as third party integrations like ERPs. In order to maximize forward compatibility, APIs and SDKs are versioned.</p>
-<p>Of course, the future architecture supports <strong>Extensions</strong>, which can be placed all over the system. Modules can hook on to existing features or add new ones, either on the front-end applications as well as in the back-end (for data processing). On the front-end, Modules are based on the FO/BO SDKs, whereas server-side they are built on top of the Back-end SDK. While Front-end SDKs allow Modules to interact with front-end applications and retrieve data through PrestaShop&rsquo;s APIs, the Back-end SDK provides access to the Core API, which allows Modules to query data directly from the Core, perform state transitions, extend existing API endpoints and even create new ones. In order to ensure system stability, Extensions can <em>only</em> interact with PrestaShop through APIs and SDKs.</p>
-<p>Finally, Themes are a particular kind of extension that sits on top of the front-end application and that defines the <em>layout</em> and <em>style</em> for components provided by the application, FO SDK, and any installed Modules.</p>
-<h2 id="migration-as-an-introduction-to-the-core">Migration as an introduction to the Core</h2>
-<p>Our Handlers started as &ldquo;place where we put the legacy code we dont have the time to migrate now&rdquo;. They must now become interfaces for the Core domain, defining the future API endpoints. You could think of them as Controllers for the Domain, and consequently they will become empty of business logic, only focused on validating incoming Commands and Queries and formatting the data in both directions.</p>
+    protected function configure()
+    {
+        $this-&gt;setName(&#39;my-custom-command&#39;);
+    }
+
+    protected function execute(InputInterface $input, OutputInterface $output)
+    {
+        $this-&gt;getContainer()-&gt;get(&#39;prestashop.adapter.legacy_context_loader&#39;)-&gt;loadGenericContext();
+        
+        ...
+    }
+});
+</code></pre></div><p>You can load a generic context thanks to <code>loadGenericContext()</code> or choose which data you want to initialize using the method of <a href="https://github.com/PrestaShop/PrestaShop/blob/1.7.8.x/src/Adapter/LegacyContextLoader.php">LegacyContextLoader</a>.</p>
 
 
 <footer class="article-footer">
 	
 <div>
-  Last updated on September 11, 2020
+  Last updated on June 7, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/80f9f33461af9dbf10a6127a9be693382c50b881">"Apply suggestions from code review" (80f9f3346)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/0e9d75cf518be08ebf39a14b810754331dba5aeb">"Apply suggestions from code review" (0e9d75cf5)</a>
   
 </div>
 
