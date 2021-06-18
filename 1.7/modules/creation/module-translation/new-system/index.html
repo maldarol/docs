@@ -21,16 +21,16 @@
     <title>New translation system :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1623769023" rel="stylesheet">
-    <link href="/css/syntax-github.css?1623769023" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1623769023" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1623769023" rel="stylesheet">
-    <link href="/css/auto-complete.css?1623769023" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1624001288" rel="stylesheet">
+    <link href="/css/syntax-github.css?1624001288" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1624001288" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1624001288" rel="stylesheet">
+    <link href="/css/auto-complete.css?1624001288" rel="stylesheet">
     
-    <link href="/style.css?1623769023" rel="stylesheet">
+    <link href="/style.css?1624001288" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1623769023"></script>
+    <script src="/js/jquery-3.3.1.min.js?1624001288"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -61,14 +61,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1623769023"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1623769023"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1624001288"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1624001288"></script>
 <script type="text/javascript">
     
         var baseurl = '\/';
     
 </script>
-<script type="text/javascript" src="/js/search.js?1623769023"></script>
+<script type="text/javascript" src="/js/search.js?1624001288"></script>
 
     
   </div>
@@ -5882,6 +5882,27 @@
       <li data-nav-id="/1.7/modules/creation/module-translation/classic-system/" title="Classic translation system" class="dd-item ">
         <a href="/1.7/modules/creation/module-translation/classic-system/">
         Classic system
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/modules/creation/module-translation/comparison/" title="Comparison between Classic translation system and New translation system" class="dd-item ">
+        <a href="/1.7/modules/creation/module-translation/comparison/">
+        Which system to use?
         
         </a>
     </li>
@@ -12220,11 +12241,7 @@
         </li>
         <li><a href="#using-translation">Using translation</a>
           <ul>
-            <li><a href="#translation-domain">Translation domain</a>
-              <ul>
-                <li></li>
-              </ul>
-            </li>
+            <li><a href="#translation-domain">Translation domain</a></li>
             <li><a href="#php-files">PHP files</a>
               <ul>
                 <li><a href="#modules-main-class">Module&rsquo;s main class</a></li>
@@ -15716,6 +15733,21 @@
         
           
           
+        
+      
+      
+      
+      
+      
+
+      
+    
+  
+      
+        
+    
+    
+      
         
       
       
@@ -19531,23 +19563,20 @@ Make sure that the technical name of your module does not contain contains under
 <ul>
 <li>The first letter must be in upper case, and the rest in lower case.</li>
 <li>Symbols like dots, dashes and underscores are allowed (but discouraged).</li>
-<li>If you want to use previously-generated classic translation dictionary files, you need to follow a <a href="#backwards-compatibility">specific naming convention for backwards compatibility</a>.<br>
-Otherwise, consider using the <a href="/1.7/development/internationalization/translation/translation-domains/">Native module conventions</a> (<em>&ldquo;Admin&rdquo;</em> or <em>&ldquo;Shop&rdquo;</em>).</li>
+<li>If you target 1.7.8 and over, consider using the <a href="/1.7/development/internationalization/translation/translation-domains/">Native module conventions</a> (<em>&ldquo;Admin&rdquo;</em> or <em>&ldquo;Shop&rdquo;</em>).</li>
+<li>If you want to use previously-generated classic translation dictionary files for backward compatibility, you need to follow a specific naming convention (explained below).</li>
 </ul>
 </li>
 </ol>
 
 <div class="callout">
-<h4 id="backwards-compatibility">Backwards compatibility</h4>
-<p>If you want your module to be compatible with previously-generated <a href="/1.7/modules/creation/module-translation/classic-system/">classic translation dictionary files</a>, then the third component of the Translation domain must be set to the name of the file where the wording is used, respecting the following rules:</p>
+<h4 id="backward-compatibility">Backward compatibility</h4>
+<p>If you want your module to be compatible with previously-generated <a href="/1.7/modules/creation/module-translation/classic-system/">classic translation dictionary files</a>, then the third component of the Translation domain <strong>must</strong> be set to the name of the file where the wording is used, respecting the following rules:</p>
 <ul>
 <li>The first letter must be in upper case, and the rest in lower case</li>
 <li>If the file extension is <code>.tpl</code>, the extension must be removed</li>
 <li>If the file name ends in &ldquo;controller&rdquo;, that part must be removed as well.</li>
 </ul>
-
-</div>
-
 <h5 id="examples">Examples</h5>
 <p>Assuming your module is called &ldquo;my_module&rdquo;:</p>
 <table>
@@ -19581,6 +19610,9 @@ Otherwise, consider using the <a href="/1.7/development/internationalization/tra
 </tbody>
 </table>
 <p>You can find more examples in the <a href="https://github.com/PrestaShop/TranslationToolsBundle/blob/master/Tests/Translation/Helper/DomainHelperTest.php#L61">test fixtures for DomainHelper</a>.</p>
+
+</div>
+
 <h3 id="php-files">PHP files</h3>
 <p>In PHP files, translation is performed using the module&rsquo;s <code>trans()</code> method.</p>
 <p>This method takes four parameters:</p>
@@ -19764,9 +19796,9 @@ Otherwise, consider using the <a href="/1.7/development/internationalization/tra
 <footer class="article-footer">
 	
 <div>
-  Last updated on April 22, 2021
+  Last updated on June 16, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/57d599302215ca109f4d8e40a07c6648e7a57a02">"Update translation documentation" (57d599302)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/61a75deaf77bdf8dea1e2f03b2232d1f771fcb32">"Small improvements" (61a75deaf)</a>
   
 </div>
 
@@ -19787,19 +19819,19 @@ Otherwise, consider using the <a href="/1.7/development/internationalization/tra
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1623769023"></script>
-    <script src="/js/perfect-scrollbar.min.js?1623769023"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1623769023"></script>
-    <script src="/js/jquery.sticky.js?1623769023"></script>
-    <script src="/js/featherlight.min.js?1623769023"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1623769023"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1623769023"></script>
-    <script src="/js/learn.js?1623769023"></script>
-    <script src="/js/hugo-learn.js?1623769023"></script>
+    <script src="/js/clipboard.min.js?1624001288"></script>
+    <script src="/js/perfect-scrollbar.min.js?1624001288"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1624001288"></script>
+    <script src="/js/jquery.sticky.js?1624001288"></script>
+    <script src="/js/featherlight.min.js?1624001288"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1624001288"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1624001288"></script>
+    <script src="/js/learn.js?1624001288"></script>
+    <script src="/js/hugo-learn.js?1624001288"></script>
     
-    <script src="/main.js?1623769023"></script>
-    <link href="/mermaid/mermaid.css?1623769023" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1623769023"></script>
+    <script src="/main.js?1624001288"></script>
+    <link href="/mermaid/mermaid.css?1624001288" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1624001288"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
