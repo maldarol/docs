@@ -19,6 +19,17 @@ This object contains two attributes:
     </item>
     
     <item>
+      <title>Configuration storage</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/configuration/</guid>
+      <description>Configuration storage The Configuration storage of PrestaShop aims to address two needs.
+First, there are multiple situations where a single value has to be stored and be available easily. It can be a boolean to control order mode, it can be a limit for timeout: a simple key =&amp;gt; value(s) storage is needed to manage multiple settings in PrestaShop.
+Secondly, modules might sometimes need a simple storage system, and they should not have to create a new SQL table for such a simple need.</description>
+    </item>
+    
+    <item>
       <title>Back Office Help sidebar</title>
       <link>https://devdocs.prestashop.com/1.7/development/components/back-office-help-sidebar/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

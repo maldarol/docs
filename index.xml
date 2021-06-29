@@ -28,17 +28,6 @@ $ php -l &amp;lt;file&amp;gt; Syntax check only (lint) The linter can be run on 
     </item>
     
     <item>
-      <title>Configuration</title>
-      <link>https://devdocs.prestashop.com/1.7/modules/concepts/configuration/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/modules/concepts/configuration/</guid>
-      <description>Configuration Data can be saved in the shop database without requiring a module specific table to be created.
-The table configuration contains a list of key =&amp;gt; value(s) properties which can be accessed from anywhere, including in a module. The Configuration class is the interface allowing each module developer to get or store data in this table.
-Store configuration data &amp;lt;?php Configuration::updateValue(string $key, mixed $value); $key will be the reference to your data to reuse later.</description>
-    </item>
-    
-    <item>
       <title>Create your custom form factory</title>
       <link>https://devdocs.prestashop.com/1.7/development/components/grid/tutorials/work-with-search-form/custom-form-factory/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1863,6 +1852,17 @@ How do we use the UIKit? We use it by adding it into our npm dependency, and the
       <guid>https://devdocs.prestashop.com/1.7/development/architecture/migration-guide/validation/</guid>
       <description>Validation The purpose of validation is to protect the application from failures, state inconsistency, security related issues etc. PrestaShop has few different levels of validation:
  Forms (the CRUD or Settings) - are using Symfony validation constraints to prevent the user from providing invalid information while also enriching the user experience. For example if a form input expects Yes or No, but user submitted value XYZ we want to reject the data and inform the user what was wrong.</description>
+    </item>
+    
+    <item>
+      <title>Configuration storage</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/configuration/</guid>
+      <description>Configuration storage The Configuration storage of PrestaShop aims to address two needs.
+First, there are multiple situations where a single value has to be stored and be available easily. It can be a boolean to control order mode, it can be a limit for timeout: a simple key =&amp;gt; value(s) storage is needed to manage multiple settings in PrestaShop.
+Secondly, modules might sometimes need a simple storage system, and they should not have to create a new SQL table for such a simple need.</description>
     </item>
     
     <item>
