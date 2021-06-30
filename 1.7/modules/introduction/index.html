@@ -21,16 +21,16 @@
     <title>Introduction :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1624998918" rel="stylesheet">
-    <link href="/css/syntax-github.css?1624998918" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1624998918" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1624998918" rel="stylesheet">
-    <link href="/css/auto-complete.css?1624998918" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1625070210" rel="stylesheet">
+    <link href="/css/syntax-github.css?1625070210" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1625070210" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1625070210" rel="stylesheet">
+    <link href="/css/auto-complete.css?1625070210" rel="stylesheet">
     
-    <link href="/style.css?1624998918" rel="stylesheet">
+    <link href="/style.css?1625070210" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1624998918"></script>
+    <script src="/js/jquery-3.3.1.min.js?1625070210"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -2225,6 +2225,27 @@
         </ul>
       
     </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/1.7/development/architecture/cache/" title="Cache" class="dd-item ">
+        <a href="/1.7/development/architecture/cache/">
+        Cache
+        
+        </a>
+    </li>
+     
   
  
 
@@ -12192,7 +12213,6 @@
         <li><a href="#modules-operating-principles">Modules' operating principles</a></li>
         <li><a href="#main-differences-between-16-and-17-modules">Main differences between 1.6 and 1.7 modules</a></li>
         <li><a href="#modules-folder">Modules folder</a></li>
-        <li><a href="#about-the-cache">About the cache</a></li>
       </ul>
     </li>
   </ul>
@@ -13557,6 +13577,21 @@
       
     
   
+      
+    
+  
+      
+        
+    
+    
+      
+        
+      
+      
+      
+      
+      
+
       
     
   
@@ -19416,73 +19451,38 @@ the current View at the time of the code parsing (i.e., when displaying
 the cart or the product sheet, when displaying the current stock, etc.).
 Specifically, a hook is a shortcut to the various methods available from
 the <code>Module</code> object, as assigned to that hook.</p>
-<p>For security reasons, during validation, we do not accept any call
-to another website/API in order to retrieve code that will later be
-executed on server or client.</p>
+
+<div class="notices note" >Injecting executable code via third party API or services is considered a security threat and is therefore forbidden for modules sold in the Addons Marketplace.</div>
+
 <h2 id="modules-operating-principles">Modules' operating principles</h2>
 <p>Modules are the ideal way to let your talent and imagination as a
 developer express themselves, as the creative possibilities are many and
 you can do pretty much anything with PrestaShop&rsquo;s module API.</p>
-<p>Any module:</p>
+<p>Modules can:</p>
 <ul>
-<li>can display a variety of content (blocks, text, etc.), perform many
-tasks (batch update, import, export, etc.), interface with other
-tools, and much much more.</li>
-<li>facilitates <a href="/1.7/modules/creation/external-services/">interactions between the shop and external services</a>.</li>
-<li>can be made as configurable as necessary; the more configurable it
-is, the easier it will be to use, and thus will be able to address
-the needs of a wider range of users.</li>
-<li>can add functionalities to PrestaShop without having to edit its
-core files, thus making it easier to perform an update of PrestaShop
-without having the transpose all core changes. Indeed, you should
-always strive to stay away from core files when building a module,
-even though this may seem necessary in some situations.</li>
+<li>Extend or modify existing PrestaShop features, like adding a field in a form, a block of text, or an independent component — without modifying PrestaShop&rsquo;s files. This allows merchants to update their shops without requiring to apply your changes again.</li>
+<li>Add new fully independent features (e.g. a new screen).</li>
+<li>Perform a task (like batch update, import, export&hellip;)</li>
+<li>Facilitate <a href="/1.7/modules/creation/external-services/">interactions between the shop and external services</a>.</li>
+<li>Be made as configurable as necessary (the more configurable it is, the more likely it will be able to address the needs of a wider range of users).</li>
+<li>&hellip;and much, much more!</li>
 </ul>
 <h2 id="main-differences-between-16-and-17-modules">Main differences between 1.6 and 1.7 modules</h2>
-<p>PrestaShop 1.7 was built so that modules that were written for PS 1.6
-could work almost as-is &ndash; save for minor changes and a cosmetic update,
-the template files being in need of adapting to the 1.7 default theme.</p>
-<p>The major module development changes in PrestaShop 1.7 are explained in
-details <a href="https://build.prestashop.com/news/module-development-changes-in-17/">in this Build
-article</a>,
-and are integrated into this updated documentation. If you already know
-how to create a module that works with PS 1.6, we strongly advise you to
-read that article from top to bottom in order to get up to speed with
-1.7 development.</p>
+<p>PrestaShop 1.7 was built so that modules that were written for PS 1.6 can work almost as-is — save for minor changes and a cosmetic update, the template files being in need of adapting to the 1.7 default theme.</p>
+<p>The major module development changes in PrestaShop 1.7 are explained in details <a href="https://build.prestashop.com/news/module-development-changes-in-17/">in this Build article</a>, and are integrated into this updated documentation. If you already know how to create a module that works with PS 1.6, we strongly advise you to read that article from top to bottom in order to get up to speed with 1.7 development.</p>
 <p>Some native modules have had their names changed in PrestaShop 1.7. <a href="/1.7/development/native-modules/#module-name-changes-since-16">See the full list here</a>.</p>
 <h2 id="modules-folder">Modules folder</h2>
-<p>PrestaShop&rsquo;s modules are found in the <code>/modules</code> folder, which is at the
-root of the PrestaShop main folder. This is true for both default
-modules (provided with PrestaShop) and 3rd-party modules that are
-subsequently installed.</p>
-<p>Modules can also be part of a theme if they are really specific to it.
-In that case, they would be in the theme&rsquo;s own <code>/modules</code> folder, and
-therefore under the following path: <code>/themes/[my-theme]/modules</code></p>
-<p>Each module has its own sub-folder inside the <code>/modules</code> folder:
-<code>/bankwire</code>, <code>/birthdaypresent</code>, etc.</p>
-<h2 id="about-the-cache">About the cache</h2>
-<p>The <code>/var/cache/ENV/class_index.php</code> file contains the link between the class
-and the declaration file. If there is a caching issue, this file can
-safely be deleted.</p>
-<p>The <code>/config/xml</code> folder contains the list of all the base modules:</p>
-<pre><code>default_country_modules_list.xml
-must_have_modules_list.xml
-tab_modules_list.xml
-</code></pre>
-<p>When the store&rsquo;s front-end doesn&rsquo;t quite reflect your changes and
-emptying the browser&rsquo;s cache is not effective, you should try emptying
-the following folders:</p>
-<pre><code>/var/cache/ENV/smarty/cache
-/var/cache/ENV/smarty/compile
-</code></pre>
+<p>PrestaShop&rsquo;s modules are found in the <code>modules</code> folder, located at the root of the PrestaShop main folder. This is true for both native modules (provided with PrestaShop) and any 3rd-party modules that are subsequently installed.</p>
+<p>Modules can also be part of a theme if they are really specific to it. In that case, they would be located within the theme&rsquo;s own <code>modules</code> folder: <code>/themes/[my-theme]/modules</code></p>
+<p>Each module has its own sub-folder inside the <code>modules</code> folder: <code>/bankwire</code>, <code>/birthdaypresent</code>, etc.</p>
 
 
 <footer class="article-footer">
 	
 <div>
-  Last updated on March 12, 2021
+  Last updated on June 29, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/5b5db4d2da42f3ba162e242d5277c2f92aff9000">"Update cache folder" (5b5db4d2d)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/7e94431731565574eeaf4092482f710684d97cea">"Improve introduction, move cache section to core/architecture" (7e9443173)</a>
   
 </div>
 
@@ -19503,19 +19503,19 @@ the following folders:</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1624998918"></script>
-    <script src="/js/perfect-scrollbar.min.js?1624998918"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1624998918"></script>
-    <script src="/js/jquery.sticky.js?1624998918"></script>
-    <script src="/js/featherlight.min.js?1624998918"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1624998918"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1624998918"></script>
-    <script src="/js/learn.js?1624998918"></script>
-    <script src="/js/hugo-learn.js?1624998918"></script>
+    <script src="/js/clipboard.min.js?1625070210"></script>
+    <script src="/js/perfect-scrollbar.min.js?1625070210"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1625070210"></script>
+    <script src="/js/jquery.sticky.js?1625070210"></script>
+    <script src="/js/featherlight.min.js?1625070210"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1625070210"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1625070210"></script>
+    <script src="/js/learn.js?1625070210"></script>
+    <script src="/js/hugo-learn.js?1625070210"></script>
     
-    <script src="/main.js?1624998918"></script>
-    <link href="/mermaid/mermaid.css?1624998918" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1624998918"></script>
+    <script src="/main.js?1625070210"></script>
+    <link href="/mermaid/mermaid.css?1625070210" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1625070210"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
