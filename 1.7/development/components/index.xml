@@ -41,6 +41,16 @@ Most of these Back Office pages have a common HTML structure:
     </item>
     
     <item>
+      <title>Context</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/context/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/context/</guid>
+      <description>Context component The Context is a component first introduced with version 1.5 of PrestaShop. Its two goals are:
+ preventing developers from using global variables. enabling them to change the context of some methods.  The Context is a registry for PHP variables that were previously accessed as globals. It aims to standardize the way these variables are accessed, and to make the code more robust by getting rid of global vars.</description>
+    </item>
+    
+    <item>
       <title>Router and Dispatcher component</title>
       <link>https://devdocs.prestashop.com/1.7/development/components/router-dispatcher/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
