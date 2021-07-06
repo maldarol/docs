@@ -49,16 +49,6 @@ Via the user interface Go in the PrestaShop back office, open the &amp;ldquo;Web
     </item>
     
     <item>
-      <title>Db class</title>
-      <link>https://devdocs.prestashop.com/1.7/development/database/db/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/development/database/db/</guid>
-      <description>Using the database with the Db class Initialize connection to database &amp;lt;?php /** * @var \Db $db */ $db = \Db::getInstance(); The first call to this method initializes the link to the database, and return the same link to all the next calls. $db in this example will be reused in all the next examples.
-Db class methods Execute a raw SQL request (SELECT only) &amp;lt;?php $request = &amp;#39;SELECT `id_table` FROM `&amp;#39; .</description>
-    </item>
-    
-    <item>
       <title>Grid and identifiable object form hooks usage example</title>
       <link>https://devdocs.prestashop.com/1.7/modules/sample-modules/grid-and-identifiable-object-form-hooks-usage/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -249,16 +239,6 @@ Do you need this?
       
       <guid>https://devdocs.prestashop.com/1.7/contribute/contribute-pull-requests/contribute_using_localhost/</guid>
       <description>How to become a Core Contributor If you&amp;rsquo;re reading this, thank you! This means you&amp;rsquo;re interested in contributing to PrestaShop. You probably are a PrestaShop developer, and your use of the project is slightly different from ours. For instance, there are few differences between PrestaShop 1.7 (the release) and the branch 1.7 of PrestaShop in the GitHub repository. This is because we create a release usable by everyone from our sources.</description>
-    </item>
-    
-    <item>
-      <title>DBQuery class</title>
-      <link>https://devdocs.prestashop.com/1.7/development/database/dbquery/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/development/database/dbquery/</guid>
-      <description>The DBQuery class The DBQuery class is a query builder which helps you create SQL queries. For instance:
-&amp;lt;?php $sql = new DbQuery(); $sql-&amp;gt;select(&amp;#39;*&amp;#39;); $sql-&amp;gt;from(&amp;#39;cms&amp;#39;, &amp;#39;c&amp;#39;); $sql-&amp;gt;innerJoin(&amp;#39;cms_lang&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;c.id_cms = l.id_cms AND l.id_lang = &amp;#39;.(int)$id_lang); $sql-&amp;gt;where(&amp;#39;c.active = 1&amp;#39;); $sql-&amp;gt;orderBy(&amp;#39;position&amp;#39;); return Db::getInstance()-&amp;gt;executeS($sql); Main methods  __toString() Generate and get the query. build() Generate and get the query (return a string). from(string $table, mixed $alias = null) Set table for FROM clause. groupBy(string $fields) Add a GROUP BY restriction.</description>
     </item>
     
     <item>
@@ -484,16 +464,6 @@ Let&amp;rsquo;s add hook related code to main module class demovieworderhooks:
       
       <guid>https://devdocs.prestashop.com/1.7/modules/sample-modules/extending-sf-form-with-upload-image-field/</guid>
       <description>Extending Symfony form with upload image field  Introduction In this tutorial we are going to build a module which extends Suppliers form (SELL -&amp;gt; Catalog -&amp;gt; Brands &amp;amp; Suppliers). This module will address the following need &amp;ldquo;I&amp;rsquo;d like to add an &amp;lsquo;upload image&amp;rsquo; field to the Supplier Add/Edit form because I want to display a new logo for each supplier on my shop. So this new field must allow me to add, edit and delete image files linked to a supplier.</description>
-    </item>
-    
-    <item>
-      <title>ObjectModel class</title>
-      <link>https://devdocs.prestashop.com/1.7/development/database/objectmodel/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/development/database/objectmodel/</guid>
-      <description>The ObjectModel class When needing to dive deep, you have to use the ObjectModel class. This is the main object of PrestaShop’s object model. It can be overridden… with precaution.
-It is an Active Record kind of class (see: Active record pattern). The table attributes or view attributes of PrestaShop’s database are encapsulated in this class. Therefore, the class is tied to a database record. After the object has been instantiated, a new record is added to the database.</description>
     </item>
     
     <item>
@@ -2371,6 +2341,27 @@ Code example &amp;lt;?php // path/to/your/CustomType.php  use PrestaShopBundle\F
     </item>
     
     <item>
+      <title>Db class</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/database/db/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/database/db/</guid>
+      <description>Using the database with the Db component Initialize connection to database /** @var \Db $db */ $db = \Db::getInstance(); The first call to this method initializes the link to the database, and return the same link to all the next calls. $db in this example will be reused in all the next examples.
+Read-only &amp;ldquo;slave&amp;rdquo; server In some cases, you might encounter this alternative:
+$db = Db::getInstance(_PS_USE_SQL_SLAVE_); If PrestaShop&amp;rsquo;s database user allows the use of MySQL slave servers in its architecture, then this last instance&amp;rsquo;s connection can be done on the slave servers.</description>
+    </item>
+    
+    <item>
+      <title>DBQuery class</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/database/dbquery/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/database/dbquery/</guid>
+      <description>The DBQuery class The DBQuery class is a query builder which helps you create SQL queries. For instance:
+$sql = new DbQuery(); $sql-&amp;gt;select(&amp;#39;*&amp;#39;); $sql-&amp;gt;from(&amp;#39;cms&amp;#39;, &amp;#39;c&amp;#39;); $sql-&amp;gt;innerJoin(&amp;#39;cms_lang&amp;#39;, &amp;#39;l&amp;#39;, &amp;#39;c.id_cms = l.id_cms AND l.id_lang = &amp;#39;.(int)$id_lang); $sql-&amp;gt;where(&amp;#39;c.active = 1&amp;#39;); $sql-&amp;gt;orderBy(&amp;#39;position&amp;#39;); return Db::getInstance()-&amp;gt;executeS($sql); Main methods  __toString() Generate and get the query. build() Generate and get the query (return a string). from(string $table, mixed $alias = null) Set table for FROM clause. groupBy(string $fields) Add a GROUP BY restriction.</description>
+    </item>
+    
+    <item>
       <title>Deliveries</title>
       <link>https://devdocs.prestashop.com/1.7/webservice/resources/deliveries/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -2777,6 +2768,16 @@ Everything will be fine, trust me. Info {{% notice info %}} This is pretty impor
       <guid>https://devdocs.prestashop.com/1.7/development/components/form/types-reference/number-min-max-filter/</guid>
       <description>NumberMinMaxFilterType The NumberMinMaxFilterType represents two NumberType fields - one holds minimum value of float number type and other holds maximum value. NumberType is one of the native symfony types.
 Type options    Option Type Default Description     min_field_options array array ( &amp;lsquo;attr&amp;rsquo; =&amp;gt; array ( &amp;lsquo;placeholder&amp;rsquo; =&amp;gt; $this-&amp;gt;trans(&amp;lsquo;Min&amp;rsquo;, [], &amp;lsquo;Admin.Global&amp;rsquo;)), ) Accepts all possible values that NumberType has   max_field_options array array ( &amp;lsquo;attr&amp;rsquo; =&amp;gt; array ( &amp;lsquo;placeholder&amp;rsquo; =&amp;gt; $this-&amp;gt;trans(&amp;lsquo;Max&amp;rsquo;, [], &amp;lsquo;Admin.</description>
+    </item>
+    
+    <item>
+      <title>ObjectModel class</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/database/objectmodel/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/database/objectmodel/</guid>
+      <description>The ObjectModel class When needing to dive deep, you have to use the ObjectModel class. This is the main object of PrestaShop’s object model. It can be overridden… with precaution.
+It is an Active Record kind of class (see: Active record pattern). The table attributes or view attributes of PrestaShop’s database are encapsulated in this class. Therefore, the class is tied to a database record. After the object has been instantiated, a new record is added to the database.</description>
     </item>
     
     <item>
