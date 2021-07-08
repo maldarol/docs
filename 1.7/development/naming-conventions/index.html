@@ -21,16 +21,16 @@
     <title>Naming conventions :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1625555754" rel="stylesheet">
-    <link href="/css/syntax-github.css?1625555754" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1625555754" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1625555754" rel="stylesheet">
-    <link href="/css/auto-complete.css?1625555754" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1625732465" rel="stylesheet">
+    <link href="/css/syntax-github.css?1625732465" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1625732465" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1625732465" rel="stylesheet">
+    <link href="/css/auto-complete.css?1625732465" rel="stylesheet">
     
-    <link href="/style.css?1625555754" rel="stylesheet">
+    <link href="/style.css?1625732465" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1625555754"></script>
+    <script src="/js/jquery-3.3.1.min.js?1625732465"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -12272,21 +12272,18 @@
     <div id="toc-title">Table of Contents</div>
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#conventions">Conventions</a>
+    <li><a href="#naming-conventions">Naming Conventions</a>
       <ul>
-        <li><a href="#naming-conventions">Naming conventions</a>
+        <li><a href="#controllers--actions">Controllers &amp; actions</a></li>
+        <li><a href="#templates">Templates</a></li>
+        <li><a href="#routes-and-paths">Routes and paths</a></li>
+        <li><a href="#service-ids">Service ids</a>
           <ul>
-            <li><a href="#controllers--actions">Controllers &amp; actions</a></li>
-            <li><a href="#templates">Templates</a></li>
-            <li><a href="#routes-and-paths">Routes and paths</a></li>
-            <li><a href="#service-ids">Service ids</a>
-              <ul>
-                <li><a href="#named-arguments">Named arguments</a></li>
-              </ul>
-            </li>
-            <li><a href="#grid">Grid</a></li>
+            <li><a href="#named-arguments">Named arguments</a></li>
           </ul>
         </li>
+        <li><a href="#grid">Grid</a></li>
+        <li><a href="#modules">Modules</a></li>
       </ul>
     </li>
   </ul>
@@ -19545,25 +19542,30 @@
 
 
 
-<h1 id="conventions">Conventions</h1>
-<p>As with <a href="/1.7/development/coding-standards/">Coding standards</a> naming consistency is very important in PrestaShop, thus there are conventions that every PrestaShop contributor should follow.</p>
-<h2 id="naming-conventions">Naming conventions</h2>
+<h1 id="naming-conventions">Naming Conventions</h1>
+<p>As with <a href="/1.7/development/coding-standards/">Coding standards</a>, naming consistency is very important in PrestaShop, thus there are conventions that every PrestaShop contributor should follow.</p>
 
-<div class="notices note" >At the moment naming conventions strictly applies for Back Office migration only.</div>
+<div class="notices note" >At the moment naming conventions are enforced for new code only.</div>
 
-<h3 id="controllers--actions">Controllers &amp; actions</h3>
+<h2 id="controllers--actions">Controllers &amp; actions</h2>
 <p>PrestaShop controllers follow these naming conventions:</p>
 <ul>
-<li>Prefix controller with resource name in singular form (e.g. <code>CustomerController</code>, <code>ProductController</code>);</li>
-<li>Prefix index action with <code>index</code>. For <code>Object</code> controllers (e.g. <code>CustomerController</code>) it&rsquo;s normally page with list of objects (e.g. Customers, Products) and for <code>Configuration</code> controllers (e.g. <code>PerformanceController</code>) it&rsquo;s page with configuration form (e.g. Caching configuration, CCC configuration).</li>
-<li>Action name should be clear and concise (e.g. <code>editAction()</code>, <code>savePrivateNoteAction()</code> are good examples, but <code>formAction()</code> or <code>processAction()</code> is not and thus should be avoided).</li>
+<li>Controller names start with an upper case letter and end in <em>&ldquo;Controller&rdquo;</em> (e.g. <code>SomethingController</code>).</li>
+<li>Prefix controller names with the name of the related resource in singular form (e.g. <code>CustomerController</code>, <code>ProductController</code>).</li>
 </ul>
-<p>We have some standard action names:</p>
+<p>Actions follow these conventions:</p>
 <ul>
-<li><code>indexAction</code> : display the listing</li>
-<li><code>createAction</code> : show Customer creation form page and handle its submit</li>
-<li><code>editAction</code> : show Customer edit form page and handle its submit</li>
-<li><code>deleteAction</code> : delete an item</li>
+<li>Action names names start with a lower case letter and end in <em>&ldquo;Action&rdquo;</em> (e.g. <code>deleteAction</code>).</li>
+<li>Action names should be clear and concise: <code>editAction()</code>, <code>savePrivateNoteAction()</code> are good examples, but <code>formAction()</code> or <code>processAction()</code> are not clear enough.</li>
+<li>The main controller action should be named <code>indexAction</code>.</li>
+<li>Some actions names are standardized:
+<ul>
+<li><code>indexAction</code>: displays the listing (in Object-type controllers like <code>CustomerController</code>) or a form in configuration controllers.</li>
+<li><code>createAction</code>: shows the object&rsquo;s creation form page and handles the form submit</li>
+<li><code>editAction</code>: shows the object&rsquo;s edit form page and handles its submit</li>
+<li><code>deleteAction</code>: deletes an item</li>
+</ul>
+</li>
 </ul>
 <p>For a complete example see code below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
@@ -19613,10 +19615,10 @@
     <span class="p">{</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><h3 id="templates">Templates</h3>
+</code></pre></div><h2 id="templates">Templates</h2>
 <p>PrestaShop templates follow these naming conventions:</p>
 <ul>
-<li>Template name should match controller&rsquo;s action name without <code>action</code> suffix. For example, if you have <code>CustomerController:viewAction()</code> action, then your template name should be <code>view.html.twig</code>.</li>
+<li>A template&rsquo;s name should match its controller&rsquo;s action name without the &ldquo;action&rdquo; suffix. For example, if you have <code>CustomerController:viewAction()</code> action, then your template name should be <code>view.html.twig</code>.</li>
 </ul>
 <div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="c1">// CustomerController.php
@@ -19634,29 +19636,29 @@
         <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">render</span><span class="p">(</span><span class="s1">&#39;@PrestaShop/Admin/Sell/Customer/view.html.twig&#39;</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><p>For a default page, you should be following our standard action names. Applying this rule means that you should have matching template names:</p>
+</code></pre></div><p>For a typical CRUD page, you should have these template names:</p>
 <ul>
 <li><code>index.html.twig</code></li>
 <li><code>create.html.twig</code></li>
 <li><code>edit.html.twig</code></li>
 <li><code>delete.html.twig</code></li>
 </ul>
-<h3 id="routes-and-paths">Routes and paths</h3>
-<p>PrestaShop routes follow <code>admin_{resources}_{action}</code> naming structure and rules for it are:</p>
+<h2 id="routes-and-paths">Routes and paths</h2>
+<p>PrestaShop routes follow <code>admin_{resource}_{action}</code> naming structure.</p>
 <ul>
-<li><code>{resources}</code> (object) name should be in plural form (e.g. <code>customers</code>, <code>products</code>, <code>orders</code>).</li>
-<li><code>{action}</code> name should match controller&rsquo;s action name.</li>
-<li>Route should define methods that it responds to (e.g. <code>GET</code>, <code>POST</code>).</li>
-<li>Suffix route&rsquo;s URL path with <code>{resources}</code> (e.g. <code>customers</code>, <code>products</code>, <code>orders</code>) name.</li>
-<li>When route is defined for single resource (e.g. Customer, Product) then URL path should follow <code>/{resources}/{id}/{action}</code> naming (e.g. <code>/customers/23/edit</code>).</li>
-<li>When resource identifier (ID) is used in URL path then it should be prefixed with object name (e.g. <code>/{customerId}/edit</code> instead of <code>/{id}/edit</code>).</li>
+<li><code>{resource}</code> is the object&rsquo;s name in plural form (e.g. <code>customers</code>, <code>products</code>, <code>orders</code>).</li>
+<li><code>{action}</code> name should match the controller&rsquo;s action name (without the &ldquo;Action&rdquo; suffix).</li>
+<li>The route should define all HTTP methods that it responds to (e.g. <code>GET</code>, <code>POST</code>).</li>
+<li>Use <code>{resource}</code> as prefix (root) of the controller&rsquo;s routes  (e.g. <code>/customers/foo</code>, <code>/customers/bar</code>).</li>
+<li>When the route points to an action to be performed on an individual resource then URL path should follow <code>/{resource}/{resourceId}/{action}</code> naming (e.g. <code>/customers/23/edit</code>).</li>
+<li>When resource identifier (ID) is used in URL path then its placeholder should be prefixed with the object&rsquo;s name (e.g. <code>/customers/{customerId}/</code> instead of <code>/customers/{id}/</code>).</li>
 </ul>
 <p>If we were to create CRUD routes for Customer, this is how it would look like:</p>
 <ul>
-<li>Index route <code>admin_customers_index</code> with URL <code>/customers</code> and responds to <code>GET</code> method.</li>
-<li>Create route <code>admin_customers_create</code> with URL <code>/customers/new</code> and responds to <code>GET</code> and <code>POST</code> methods.</li>
-<li>Edit route <code>admin_customers_edit</code> with URL <code>/customers/{customerId}/edit </code> and responds to <code>GET</code> and <code>POST</code> methods.</li>
-<li>Delete route <code>admin_customers_delete</code> with URL <code>/customers/{customerId}/delete</code> and responds to <code>POST</code> method.</li>
+<li>Index route is <code>admin_customers_index</code>, with URL <code>/customers</code> and responds to <code>GET</code> method.</li>
+<li>Create route is <code>admin_customers_create</code>, with URL <code>/customers/new</code> and responds to <code>GET</code> and <code>POST</code> methods.</li>
+<li>Edit route is <code>admin_customers_edit</code>, with URL <code>/customers/{customerId}/edit </code> and responds to <code>GET</code> and <code>POST</code> methods.</li>
+<li>Delete route is <code>admin_customers_delete</code>, with URL <code>/customers/{customerId}/delete</code> and responds to <code>POST</code> method.</li>
 </ul>
 <p>Example of implementation for Customer routes:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="c"># src/PrestaShopBundle/Resources/config/routing/admin/sell/customer/_customer.yml</span><span class="w">
@@ -19688,8 +19690,8 @@
 </span><span class="w">    </span><span class="nt">_controller</span><span class="p">:</span><span class="w"> </span><span class="l">PrestaShopBundle:Admin/Sell/Customer/Customer:transformGuestToCustomer</span><span class="w">
 </span><span class="w">  </span><span class="nt">requirements</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="nt">customerId</span><span class="p">:</span><span class="w"> </span><span class="l">\d+</span><span class="w">
-</span></code></pre></div><h3 id="service-ids">Service ids</h3>
-<p>When registering service in YAML, its id should follow Fully-qualified class name. See example below.</p>
+</span></code></pre></div><h2 id="service-ids">Service ids</h2>
+<p>Service ids should follow the fully-qualified class name of the registered class. See example below.</p>
 <div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="o">&lt;?</span><span class="nx">php</span>
 <span class="c1">// src/Core/Payment/PaymentOptionFormDecorator.php
 </span><span class="c1"></span>
@@ -19703,8 +19705,8 @@
 </span><span class="w">  </span><span class="c"># service id follows fully-qualified class name</span><span class="w">
 </span><span class="w">  </span><span class="nt">prestashop.core.payment.payment_option_form_decorator</span><span class="p">:</span><span class="w">
 </span><span class="w">    </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;PrestaShop\PrestaShop\Core\Payment\PaymentOptionFormDecorator&#39;</span><span class="w">
-</span></code></pre></div><h4 id="named-arguments">Named arguments</h4>
-<p>Using the &ldquo;named argument&rdquo; syntax when declaring or updating services is forbidden.</p>
+</span></code></pre></div><h3 id="named-arguments">Named arguments</h3>
+<p><strong>Do NOT</strong> use &ldquo;named argument&rdquo; syntax in service declaration:</p>
 <div class="highlight"><pre class="chroma"><code class="language-yaml" data-lang="yaml"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span><span class="w">  </span><span class="c"># Good</span><span class="w">
 </span><span class="w">  </span><span class="nt">foo_bar</span><span class="p">:</span><span class="w">
@@ -19716,10 +19718,15 @@
 </span><span class="w">      </span><span class="nt">class</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;Foo\Bar&#39;</span><span class="w">
 </span><span class="w">      </span><span class="nt">arguments</span><span class="p">:</span><span class="w">
 </span><span class="w">        </span>- <span class="nt">$baz</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;baz&#39;</span><span class="w">
-</span></code></pre></div><h3 id="grid">Grid</h3>
+</span></code></pre></div><h2 id="grid">Grid</h2>
 <p>PrestaShop comes with a lot of Grids (Products, Customers, Orders &amp; etc) and keeping consistency between them is very important, thats why it follows these naming conventions:</p>
 <ul>
-<li>Grid id should be in lowercase and written in <code>snake_case</code></li>
+<li>Grid ids should be in lowercase and written in <code>snake_case</code></li>
+</ul>
+<h2 id="modules">Modules</h2>
+<ul>
+<li>Module names should contain only lower case and numbers.</li>
+<li><a href="/1.7/development/native-modules/">Native modules</a>' names must be prefixed with &ldquo;ps_&rdquo; (e.g. <code>ps_linklist</code>).</li>
 </ul>
 
 
@@ -19728,9 +19735,9 @@
 <footer class="article-footer">
   
 <div>
-  Last updated on January 27, 2021
+  Last updated on July 5, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/8efc4c8071e450b80b2a1d34d7e1cc1ca1fa6d87">"Some typos" (8efc4c807)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/e6468fb7e2870a969006c28f6b26fef049a1ed26">"Update naming conventions" (e6468fb7e)</a>
   
 </div>
 
@@ -19751,19 +19758,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1625555754"></script>
-    <script src="/js/perfect-scrollbar.min.js?1625555754"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1625555754"></script>
-    <script src="/js/jquery.sticky.js?1625555754"></script>
-    <script src="/js/featherlight.min.js?1625555754"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1625555754"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1625555754"></script>
-    <script src="/js/learn.js?1625555754"></script>
-    <script src="/js/hugo-learn.js?1625555754"></script>
+    <script src="/js/clipboard.min.js?1625732465"></script>
+    <script src="/js/perfect-scrollbar.min.js?1625732465"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1625732465"></script>
+    <script src="/js/jquery.sticky.js?1625732465"></script>
+    <script src="/js/featherlight.min.js?1625732465"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1625732465"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1625732465"></script>
+    <script src="/js/learn.js?1625732465"></script>
+    <script src="/js/hugo-learn.js?1625732465"></script>
     
-    <script src="/main.js?1625555754"></script>
-    <link href="/mermaid/mermaid.css?1625555754" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1625555754"></script>
+    <script src="/main.js?1625732465"></script>
+    <link href="/mermaid/mermaid.css?1625732465" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1625732465"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
