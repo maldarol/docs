@@ -21,16 +21,16 @@
     <title>Folder structure :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1625865856" rel="stylesheet">
-    <link href="/css/syntax-github.css?1625865856" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1625865856" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1625865856" rel="stylesheet">
-    <link href="/css/auto-complete.css?1625865856" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1626036022" rel="stylesheet">
+    <link href="/css/syntax-github.css?1626036022" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1626036022" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1626036022" rel="stylesheet">
+    <link href="/css/auto-complete.css?1626036022" rel="stylesheet">
     
-    <link href="/style.css?1625865856" rel="stylesheet">
+    <link href="/style.css?1626036022" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1625865856"></script>
+    <script src="/js/jquery-3.3.1.min.js?1626036022"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -12387,25 +12387,22 @@
   <ul>
     <li><a href="#module-file-structure">Module file structure</a>
       <ul>
-        <li>
+        <li><a href="#main-files-and-directories">Main files and directories</a>
           <ul>
-            <li>
-              <ul>
-                <li><a href="#main-file-module_namephp">Main file: <code>module_name.php</code></a></li>
-                <li><a href="#icon-files-logopng--logogif">Icon files: <code>logo.png</code> &amp;&amp; <code>logo.gif</code></a></li>
-                <li><a href="#templating-the-views-folder">Templating: the <code>views</code> folder</a></li>
-                <li><a href="#make-actions-and-pages-the-controllers-folder">Make actions and pages: the <code>controllers</code> folder</a></li>
-                <li><a href="#override-core-classes-of-prestashop-the-override-folder">Override Core classes of PrestaShop: the <code>override</code> folder</a></li>
-                <li><a href="#translate-your-strings-the-translations-folder">Translate your strings: the <code>translations</code> folder</a></li>
-                <li><a href="#adapt-behavior-of-others-modules-the-themestheme_namemodules-folder">Adapt behavior of others modules: the <code>themes/&lt;theme_name&gt;/modules</code> folder</a></li>
-                <li><a href="#manage-the-upgrade-the-upgrade-folder">Manage the upgrade: the <code>upgrade</code> folder</a></li>
-                <li><a href="#configuration-file-servicesyml">Configuration file: <code>services.yml</code></a></li>
-                <li><a href="#cache-file-configxml">Cache file: <code>config.xml</code></a></li>
-              </ul>
-            </li>
-            <li><a href="#external-libraries">External libraries</a></li>
+            <li><a href="#config-folder"><code>config/</code> folder</a></li>
+            <li><a href="#controllers-folder"><code>controllers/</code> folder</a></li>
+            <li><a href="#override-folder"><code>override/</code> folder</a></li>
+            <li><a href="#src-folder"><code>src/</code> folder</a></li>
+            <li><a href="#translations-folder"><code>translations/</code> folder</a></li>
+            <li><a href="#upgrade-folder"><code>upgrade/</code> folder</a></li>
+            <li><a href="#vendor-folder"><code>vendor/</code> folder</a></li>
+            <li><a href="#views-folder"><code>views/</code> folder</a></li>
+            <li><a href="#configxml-file"><code>config.xml</code> file</a></li>
+            <li><a href="#logopng-file"><code>logo.png</code> file</a></li>
+            <li><a href="#mymodulephp-file-main-file"><code>mymodule.php</code> file (main file)</a></li>
           </ul>
         </li>
+        <li><a href="#external-libraries">External libraries</a></li>
       </ul>
     </li>
   </ul>
@@ -19726,97 +19723,98 @@
 
 
 <h1 id="module-file-structure">Module file structure</h1>
-<p>A module is made of a lot of files, all stored in a folder that bears
-the same name as the module, that folder being in turn stored in the
-<code>/modules</code> folder at the root of the main PrestaShop folder:
-<code>/modules/&lt;name_of_the_module&gt;/</code>. A module published in an archive file
-must be in a same subfolder.</p>
-<p>Here are the possible files and folders for a PrestaShop 1.7 module:</p>
-<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">➜  module tree -L 3
-.
+<p>A module is made of a lot of files, all stored in a folder that bears the same name as the module, that folder being in turn stored in the
+<code>/modules</code> folder at the root of the main PrestaShop folder: <code>/modules/&lt;modulename&gt;/</code>.</p>
+
+<div class="notices tip" >Your module can be called anything, as long as it only contains lowercase letters and numbers (<code>/[a-z0-9]/</code>).</div>
+
+<p>A module distributed in a zip archive file must also be placed in a subfolder within the zip file.</p>
+<h2 id="main-files-and-directories">Main files and directories</h2>
+<p>Here are an example of files and folders for a PrestaShop 1.7 module:</p>
+<div class="highlight"><pre class="chroma"><code class="language-fallback" data-lang="fallback">mymodule
 ├── config
-│   ├── services.yml
-│   ├── admin
-│   │    └── services.yml
-│   └── front
-│       └── services.yml
-├── config.xml
+│   ├── admin
+│   │    └── services.yml
+│   ├── front
+│   │   └── services.yml
+│   └── services.yml
 ├── controllers
-├── logo.png
-├── module_name.php
 ├── override
 ├── src
-│   └── Entity
-├── themes
-│   └── theme_name
-│       └── modules
+│   ├── Controller
+│   └── Entity
 ├── translations
 ├── upgrade
-└── views
-    ├── css
-    ├── img
-    ├── js
-    └── templates
+├── vendor
+├── views
+│   ├── css
+│   ├── img
+│   ├── js
+│   └── templates
+├── config.xml
+├── logo.png
+└── mymodule.php
+</code></pre></div><p>Let&rsquo;s go through each one of the above.</p>
+<h3 id="config-folder"><code>config/</code> folder</h3>
 
-13 directories, 4 files
-</code></pre></div><h4 id="main-file-module_namephp">Main file: <code>module_name.php</code></h4>
-<p>The main PHP file should have the same name as the module’s root folder. For instance, for the BlockCMS module:</p>
-<ul>
-<li>Folder name: /modules/blockcms</li>
-<li>Main file name: /modules/blockcms/blockcms.php</li>
-</ul>
-<h4 id="icon-files-logopng--logogif">Icon files: <code>logo.png</code> &amp;&amp; <code>logo.gif</code></h4>
-<p>This needs to be a 32*32 pixels PNG file.</p>
-<h4 id="templating-the-views-folder">Templating: the <code>views</code> folder</h4>
-<p>This folder contains your module’s template files (.tpl or .html.twig files).</p>
-<p>Depending on your needs, your files are located in differents subfolders:</p>
-<ul>
-<li><code>/views/templates/admin</code>: For template files used by the module’s administration <em>legacy</em> controllers.</li>
-<li><code>/views/templates/front</code>: For template files used by the module’s front office controllers.</li>
-<li><code>/views/templates/hook</code>: For template files used by the module’s hooks.</li>
-</ul>
-<p>If you want to override a Twig template file from Back Office, declare your own following the same path in
-<code>/views/PrestaShop</code> subfolder. For instance, if you want to override <code>product.html.twig</code> template located in <code>Admin/Product/ProductPage</code>, create your own file in <code>/views/PrestaShop/Admin/Product/ProductPage/product.html.twig</code>.</p>
-<p>Every asset you need to use in the module (css, js or image files) must be located in their folders: <code>/views/{js, css, img, fonts}</code>.</p>
-<h4 id="make-actions-and-pages-the-controllers-folder">Make actions and pages: the <code>controllers</code> folder</h4>
-<p>This folder contains the Controller files. You can use the same sub-folder paths as for the View files.</p>
-<p>For instance, <code>/modules/&lt;module_name&gt;/controllers/front/payment.php</code> is a valid path to share an action with your Front Office.</p>
-<h4 id="override-core-classes-of-prestashop-the-override-folder">Override Core classes of PrestaShop: the <code>override</code> folder</h4>
+<div class="magic-version-pill" data-version="1.7.5" data-title="New in PrestaShop 1.7.5"></div>
 
-<div class="notices tip" >Try to avoid the overriding Core classes, this make the upgrade of your application risky.</div>
 
-<p>You need to follow the same path as the PrestaShop application in your module. For instance:</p>
+<p>The <code>config</code> folder is the place where configuration files are stored. In particular, <a href="/1.7/modules/concepts/controllers/admin-controllers/#how-to-map-an-action-of-your-controller-to-a-uri">Routes</a> and <a href="/1.7/modules/concepts/services/">Services</a>.</p>
+<h3 id="controllers-folder"><code>controllers/</code> folder</h3>
+<p>The <code>controllers</code> folder contains the legacy-style Controller files.</p>
+<p>Depending on where the controller belongs to, it is located in a different subfolder:</p>
 <ul>
-<li>Shop class
+<li><code>/controllers/admin</code>: module&rsquo;s back office controllers.</li>
+<li><code>/controllers/front</code>: module&rsquo;s front office controllers.</li>
+</ul>
+
+<div class="notices note" >Symfony-based controllers go in the <a href="#src-folder">&quot;<code>src</code>&quot; folder</a>, described below.</div>
+
+<p><a href="/1.7/modules/concepts/controllers/">Read more about Controllers →</a></p>
+<h3 id="override-folder"><code>override/</code> folder</h3>
+<p>PHP files placed in the <code>override</code> folder will replace the ones from the Core.</p>
+
+<div class="notices warning" >Overrides is a powerful, yet risky feature. Avoid using it if you can.</div>
+
+<p><a href="/1.7/modules/concepts/overrides/">Read more about Overrides →</a></p>
+<h3 id="src-folder"><code>src/</code> folder</h3>
+<p>The <code>src</code> folder is the recommended folder to place all of your module&rsquo;s PHP classes–like Grids, Entities, Forms, and so on.</p>
+<p>Symfony-based controllers go in the <code>src/Controller</code> folder.</p>
+<h3 id="translations-folder"><code>translations/</code> folder</h3>
+<p>The <code>translations</code> folder contains translation files allowing to display the module&rsquo;s wording in different languages.</p>
+<p><a href="/1.7/modules/creation/module-translation/">Read more about Translation →</a></p>
+<h3 id="upgrade-folder"><code>upgrade/</code> folder</h3>
+<p>The <code>upgrade</code> folder contains upgrade scripts to be executed when updating the module from a previous version.</p>
+<p><a href="/1.7/modules/creation/enabling-auto-update/">Read more about the Upgrade feature →</a></p>
+<h3 id="vendor-folder"><code>vendor/</code> folder</h3>
+<p>The <code>vendor</code> folder usually contains libraries imported through <a href="/1.7/modules/concepts/composer/">Composer</a> as well as its autoloader. This folder is optional.</p>
+<h3 id="views-folder"><code>views/</code> folder</h3>
+<p>The <code>views</code> folder contains your module&rsquo;s template files (<code>.tpl</code> for Smarty or <code>.html.twig</code> for Twig) as well as static assets used by the module (css, js or image files). Each type must be located in their own folders: <code>/views/{js, css, img, fonts}</code>.</p>
+<p>Depending on your needs, template files are located in different subfolders:</p>
 <ul>
-<li>PrestaShop class =&gt; <code>classes/shop/Shop.php</code></li>
-<li>Module override =&gt; <code>modules/&lt;module_name&gt;/override/classes/shop/Shop.php</code></li>
+<li><code>/views/templates/admin</code>: Smarty or Twig template files used by the module&rsquo;s back office controllers.</li>
+<li><code>/views/templates/front</code>: Smarty template files used by the module&rsquo;s front office controllers.</li>
+<li><code>/views/templates/hook</code>: Smarty template files used by the module&rsquo;s hooks.</li>
 </ul>
-</li>
-</ul>
-<p>If <code>/modules/&lt;module_name&gt;/override/classes/Shop.php</code> exists in your module and is not overriden by any more module later, this class will be used instead of the native <code>ShopCore</code> class everywhere in your application.</p>
-<h4 id="translate-your-strings-the-translations-folder">Translate your strings: the <code>translations</code> folder</h4>
-<p>This folder contains a php file for each locale: <code>fr.php</code>, <code>es.php</code>.
-Translating your module can be done within your shop administration panel, in <em>International</em> &gt; <em>Translations</em> &gt; <em>Installed modules translations</em>.</p>
-<h4 id="adapt-behavior-of-others-modules-the-themestheme_namemodules-folder">Adapt behavior of others modules: the <code>themes/&lt;theme_name&gt;/modules</code> folder</h4>
-<p>This folder is essential during modifications of an existing module, so that you can adapt it without having to touch its original files. Notably, it enables you to handle the module’s template files in various ways, depending on the current theme.</p>
-<h4 id="manage-the-upgrade-the-upgrade-folder">Manage the upgrade: the <code>upgrade</code> folder</h4>
-<p>When releasing a new version of the module, the older might need an upgrade of its data or files. This can be done using this folder.</p>
-<h4 id="configuration-file-servicesyml">Configuration file: <code>services.yml</code></h4>
-<p>In <code>services.yml</code> file, you can register your own classes as a Symfony service and alter the ones provided by PrestaShop.</p>
-<h4 id="cache-file-configxml">Cache file: <code>config.xml</code></h4>
-<p>If it does not exist yet, <code>config.xml</code> file is automatically generated by PrestaShop when the module is installed.</p>
-<p>It contains some properties on the main module class and optimizes the loading of the
-module list in the back office.</p>
-<p>It can be useful to provide it in your release, as it will allow your upgrade scripts (in <code>upgrade/</code>) to be executed immediately after the zip is downloaded.
-Otherwise it must be regenerated by PrestaShop before the upgrade file application is suggested.</p>
+<p>Since 
+<span class="version-pill" title="New in PrestaShop 1.7.3">
+  1.7.3
+</span>
+
+ you can redefine back office views by placing files in this folder. This is covered in <a href="/1.7/modules/concepts/templating/admin-views/">Overriding back office views</a>.</p>
+<p><a href="/1.7/modules/concepts/templating/">Read more about Templating →</a></p>
+<h3 id="configxml-file"><code>config.xml</code> file</h3>
+<p>The <code>config.xml</code> file contains a cached copy of properties from main module class in order to optimize performance of module listings.</p>
+<p>This file is automatically generated by PrestaShop when the module is installed, if it doesn&rsquo;t exist yet.</p>
+<p>It can be useful to provide it in your release, as it will allow your upgrade scripts (in <code>upgrade/</code>) to be executed immediately after the zip is downloaded.</p>
 <div class="highlight"><pre class="chroma"><code class="language-xml" data-lang="xml"><span class="cp">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34; ?&gt;</span>
 <span class="nt">&lt;module&gt;</span>
     <span class="nt">&lt;name&gt;</span>mymodule<span class="nt">&lt;/name&gt;</span>
     <span class="nt">&lt;displayName&gt;</span><span class="cp">&lt;![CDATA[My module]]&gt;</span><span class="nt">&lt;/displayName&gt;</span>
     <span class="nt">&lt;version&gt;</span><span class="cp">&lt;![CDATA[1.0]]&gt;</span><span class="nt">&lt;/version&gt;</span>
     <span class="nt">&lt;description&gt;</span><span class="cp">&lt;![CDATA[Description of my module.]]&gt;</span><span class="nt">&lt;/description&gt;</span>
-    <span class="nt">&lt;author&gt;</span><span class="cp">&lt;![CDATA[Firstname Lastname]]&gt;</span><span class="nt">&lt;/author&gt;</span>
+    <span class="nt">&lt;author&gt;</span><span class="cp">&lt;![CDATA[Author name]]&gt;</span><span class="nt">&lt;/author&gt;</span>
     <span class="nt">&lt;tab&gt;</span><span class="cp">&lt;![CDATA[front_office_features]]&gt;</span><span class="nt">&lt;/tab&gt;</span>
     <span class="nt">&lt;confirmUninstall&gt;</span>Are you sure you want to uninstall?<span class="nt">&lt;/confirmUninstall&gt;</span>
     <span class="nt">&lt;is_configurable&gt;</span>0<span class="nt">&lt;/is_configurable&gt;</span>
@@ -19825,32 +19823,31 @@ Otherwise it must be regenerated by PrestaShop before the upgrade file applicati
 <span class="nt">&lt;/module&gt;</span>
 </code></pre></div><p>A few details:</p>
 <ul>
-<li><code>is_configurable</code> indicates whether the module has a configuration
-page or not.</li>
-<li><code>need_instance</code> indicates whether an instance of the module must be
-created when it is displayed in the module list. This can be useful
-if the module has to perform checks on the PrestaShop configuration,
-and display warning message accordingly.</li>
-<li><code>limited_countries</code> is used to indicate the countries to which the
-module is limited. For instance, if the module must be limited to
-France and Spain, use
-<code>&lt;limited_countries&gt;fr,es&lt;/limited_countries&gt;</code>.</li>
+<li><code>is_configurable</code> indicates whether the module has a configuration page or not.</li>
+<li><code>need_instance</code> indicates whether an instance of the module must be created when it is displayed in the module list. This can be useful if the module has to perform checks on the PrestaShop configuration, and display warning message accordingly.</li>
+<li><code>limited_countries</code> is used to indicate the countries to which the module is limited. For instance, if the module must be limited to France and Spain, use <code>&lt;limited_countries&gt;fr,es&lt;/limited_countries&gt;</code>.</li>
 </ul>
-<h3 id="external-libraries">External libraries</h3>
-<p>All external library you&rsquo;d use should be put in a dedicated folder.</p>
-<p>That folder can use one of these names: &lsquo;lib&rsquo;, &lsquo;libs&rsquo;, &lsquo;libraries&rsquo;,
-&lsquo;sdk&rsquo;, &lsquo;vendor&rsquo;, &lsquo;vendors&rsquo;.</p>
-<p>Choose the most appropriate one for your library (indeed, &lsquo;libraries&rsquo;
-doesn&rsquo;t not have the same meaning as &lsquo;sdk&rsquo;). You can have more than one
-such folder, for instance <code>/sdk</code> and <code>/vendor</code>.</p>
+<h3 id="logopng-file"><code>logo.png</code> file</h3>
+<p>This icon file will be displayed in module listings if present. It needs to be a 32x32 pixel PNG file.</p>
+<h3 id="mymodulephp-file-main-file"><code>mymodule.php</code> file (main file)</h3>
+<p>The module&rsquo;s main PHP file should be named the same as the module’s root folder.</p>
+<p>Example for the BlockCMS module:</p>
+<ul>
+<li>Folder name: <code>/modules/blockcms</code></li>
+<li>Main file name: <code>/modules/blockcms/blockcms.php</code></li>
+</ul>
+<h2 id="external-libraries">External libraries</h2>
+<p>All external libraries should be put in a dedicated folder.</p>
+<p>That folder can use one of these names: <code>lib</code>, <code>libs</code>, <code>libraries</code>, <code>sdk</code>, <code>vendor</code>, <code>vendors</code>.</p>
+<p>Choose the most appropriate one for your library (indeed, <code>libraries</code> doesn&rsquo;t have the same meaning as <code>sdk</code>). You can have more than one such folder, for instance <code>/sdk</code> and <code>/vendor</code>.</p>
 
 
 <footer class="article-footer">
 	
 <div>
-  Last updated on January 14, 2021
+  Last updated on July 5, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/900e975bb7eb229a493f7656b95d8a05fa883da6">"Explain why config.xml should be added" (900e975bb)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/55eeaf4e31391601d3dccc37d334343cff8193ff">"Update module file structure" (55eeaf4e3)</a>
   
 </div>
 
@@ -19871,19 +19868,19 @@ such folder, for instance <code>/sdk</code> and <code>/vendor</code>.</p>
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1625865856"></script>
-    <script src="/js/perfect-scrollbar.min.js?1625865856"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1625865856"></script>
-    <script src="/js/jquery.sticky.js?1625865856"></script>
-    <script src="/js/featherlight.min.js?1625865856"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1625865856"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1625865856"></script>
-    <script src="/js/learn.js?1625865856"></script>
-    <script src="/js/hugo-learn.js?1625865856"></script>
+    <script src="/js/clipboard.min.js?1626036022"></script>
+    <script src="/js/perfect-scrollbar.min.js?1626036022"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1626036022"></script>
+    <script src="/js/jquery.sticky.js?1626036022"></script>
+    <script src="/js/featherlight.min.js?1626036022"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1626036022"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1626036022"></script>
+    <script src="/js/learn.js?1626036022"></script>
+    <script src="/js/hugo-learn.js?1626036022"></script>
     
-    <script src="/main.js?1625865856"></script>
-    <link href="/mermaid/mermaid.css?1625865856" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1625865856"></script>
+    <script src="/main.js?1626036022"></script>
+    <link href="/mermaid/mermaid.css?1626036022" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1626036022"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

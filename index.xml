@@ -259,9 +259,8 @@ Media::addJsDef([ &amp;#39;myVueJsModuleRouteToSomeAction&amp;#39; =&amp;gt; $th
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/modules/creation/module-file-structure/</guid>
-      <description>Module file structure A module is made of a lot of files, all stored in a folder that bears the same name as the module, that folder being in turn stored in the /modules folder at the root of the main PrestaShop folder: /modules/&amp;lt;name_of_the_module&amp;gt;/. A module published in an archive file must be in a same subfolder.
-Here are the possible files and folders for a PrestaShop 1.7 module:
-➜ module tree -L 3 .</description>
+      <description>Module file structure A module is made of a lot of files, all stored in a folder that bears the same name as the module, that folder being in turn stored in the /modules folder at the root of the main PrestaShop folder: /modules/&amp;lt;modulename&amp;gt;/.
+Your module can be called anything, as long as it only contains lowercase letters and numbers (/[a-z0-9]/). A module distributed in a zip archive file must also be placed in a subfolder within the zip file.</description>
     </item>
     
     <item>
