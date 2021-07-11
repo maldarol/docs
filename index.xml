@@ -199,6 +199,16 @@ Main form This form is created by the controller which combines a few different 
     </item>
     
     <item>
+      <title>Tutorial: Creating your first module</title>
+      <link>https://devdocs.prestashop.com/1.7/modules/creation/tutorial/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/modules/creation/tutorial/</guid>
+      <description>Tutorial: Creating your first module Before you start writing code for your PrestaShop module, we recommend reading PrestaShop&amp;rsquo;s Coding standards. Configuring your IDE hints or using automated tools can help you make sure you follow the project&amp;rsquo;s standards properly. Let&amp;rsquo;s create a simple first module; this will enable us to better describe its structure. We will name it &amp;ldquo;My module&amp;rdquo;.
+First, create the module&amp;rsquo;s folder, in PrestaShop&amp;rsquo;s /modules folder. Let&amp;rsquo;s call it mymodule.</description>
+    </item>
+    
+    <item>
       <title>Why write documentation</title>
       <link>https://devdocs.prestashop.com/1.7/contribute/documentation/why/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1824,17 +1834,6 @@ How do we use the UIKit? We use it by adding it into our npm dependency, and the
     </item>
     
     <item>
-      <title>Configuration storage</title>
-      <link>https://devdocs.prestashop.com/1.7/development/components/configuration/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://devdocs.prestashop.com/1.7/development/components/configuration/</guid>
-      <description>Configuration storage The Configuration storage of PrestaShop aims to address two needs.
-First, there are multiple situations where a single value has to be stored and be available easily. It can be a boolean to control order mode, it can be a limit for timeout: a simple key =&amp;gt; value(s) storage is needed to manage multiple settings in PrestaShop.
-Secondly, modules might sometimes need a simple storage system, and they should not have to create a new SQL table for such a simple need.</description>
-    </item>
-    
-    <item>
       <title>Release a native PrestaShop module</title>
       <link>https://devdocs.prestashop.com/1.7/project/maintainers-guide/release-a-native-ps-module/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1904,6 +1903,19 @@ Tabs registration In order to register new links, open your main module class.</
       <description>The Back Office Help sidebar Back Office controller returns Back Office HTML pages.
 Most of these Back Office pages have a common HTML structure:
  a layout at the top a menu navigation bar on the left the page content at the center a collapsable right sidebar that contains documentation  About the help sidebar content When the BO user clicks on the &amp;lsquo;Help&amp;rsquo; button, the sidebar opens and displays the related Documentation page for the Back Office page that the user browses.</description>
+    </item>
+    
+    <item>
+      <title>Backward compatible configuration storage</title>
+      <link>https://devdocs.prestashop.com/1.7/development/components/configuration/backward-compatibility/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://devdocs.prestashop.com/1.7/development/components/configuration/backward-compatibility/</guid>
+      <description>Backward compatible configuration storage PrestaShop 1.7 keeps the 1.6 configuration class for backward compatibility.
+If you don&amp;rsquo;t need compatibility with 1.6 shops, we suggest using the Configuration service instead.
+Usage Store configuration data Configuration::updateValue(string $key, mixed $value): bool This method returns true if the operation is successful, false otherwise.
+Parameters:
+ $key Identifier to your data to reuse later. You can use any valid string, but by convention, identifiers are usually in ALL_CAPS_WITH_UNDERSCORES.</description>
     </item>
     
     <item>

@@ -77,6 +77,9 @@
     <loc>https://devdocs.prestashop.com/1.7/development/page-reference/back-office/product/form/product-form-before-1-7-8/</loc>
     <lastmod>2020-05-27T12:18:46+02:00</lastmod>
   </url><url>
+    <loc>https://devdocs.prestashop.com/1.7/modules/creation/tutorial/</loc>
+    <lastmod>2021-07-02T16:54:03-03:00</lastmod>
+  </url><url>
     <loc>https://devdocs.prestashop.com/1.7/contribute/documentation/why/</loc>
     <lastmod>2020-07-10T18:20:03+02:00</lastmod>
   </url><url>
@@ -338,14 +341,14 @@
     <loc>https://devdocs.prestashop.com/1.7/faq/</loc>
     <lastmod>2020-12-19T14:42:59+02:00</lastmod>
   </url><url>
+    <loc>https://devdocs.prestashop.com/1.7/modules/creation/</loc>
+    <lastmod>2021-07-02T16:54:03-03:00</lastmod>
+  </url><url>
     <loc>https://devdocs.prestashop.com/1.7/webservice/getting-started/</loc>
     <lastmod>2020-06-18T12:44:09+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/multistore/getting-started/</loc>
     <lastmod>2021-05-10T12:24:24+02:00</lastmod>
-  </url><url>
-    <loc>https://devdocs.prestashop.com/1.7/modules/creation/</loc>
-    <lastmod>2021-06-29T09:56:41+06:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/basics/keeping-up-to-date/backup/</loc>
     <lastmod>2021-05-26T11:46:00+02:00</lastmod>
@@ -744,7 +747,7 @@
     <lastmod>2020-11-25T10:01:35+01:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/configuration/</loc>
-    <lastmod>2021-06-29T21:40:09+02:00</lastmod>
+    <lastmod>2021-07-02T16:40:30-03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/project/maintainers-guide/release-a-native-ps-module/</loc>
     <lastmod>2021-04-12T22:20:04+02:00</lastmod>
@@ -781,6 +784,9 @@
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/back-office-help-sidebar/</loc>
     <lastmod>2021-06-07T11:39:34+02:00</lastmod>
+  </url><url>
+    <loc>https://devdocs.prestashop.com/1.7/development/components/configuration/backward-compatibility/</loc>
+    <lastmod>2021-07-02T16:40:30-03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/architecture/cache/</loc>
     <lastmod>2021-06-29T16:36:21-03:00</lastmod>
@@ -1051,6 +1057,9 @@
     <loc>https://devdocs.prestashop.com/1.7/themes/reference/migration-from-16/</loc>
     <lastmod>2018-06-29T18:08:57+02:00</lastmod>
   </url><url>
+    <loc>https://devdocs.prestashop.com/1.7/modules/concepts/module-class/</loc>
+    <lastmod>2021-07-02T16:41:28-03:00</lastmod>
+  </url><url>
     <loc>https://devdocs.prestashop.com/1.7/development/components/form/types-reference/money-with-suffix/</loc>
     <lastmod>2020-09-03T23:13:44+01:00</lastmod>
   </url><url>
@@ -1058,7 +1067,7 @@
     <lastmod>2021-05-26T16:01:08+02:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/modules/concepts/multistore/</loc>
-    <lastmod>2021-05-04T14:49:19+02:00</lastmod>
+    <lastmod>2021-07-02T16:40:30-03:00</lastmod>
   </url><url>
     <loc>https://devdocs.prestashop.com/1.7/contribute/documentation/shortcodes/notice/</loc>
     <lastmod>2019-10-31T14:55:47+01:00</lastmod>
