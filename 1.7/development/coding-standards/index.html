@@ -21,16 +21,16 @@
     <title>Coding standards :: PrestaShop Developer Documentation</title>
 
     
-    <link href="/css/font-awesome.min.css?1626101313" rel="stylesheet">
-    <link href="/css/syntax-github.css?1626101313" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1626101313" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1626101313" rel="stylesheet">
-    <link href="/css/auto-complete.css?1626101313" rel="stylesheet">
+    <link href="/css/font-awesome.min.css?1626164754" rel="stylesheet">
+    <link href="/css/syntax-github.css?1626164754" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1626164754" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1626164754" rel="stylesheet">
+    <link href="/css/auto-complete.css?1626164754" rel="stylesheet">
     
-    <link href="/style.css?1626101313" rel="stylesheet">
+    <link href="/style.css?1626164754" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700" rel="stylesheet">
 
-    <script src="/js/jquery-3.3.1.min.js?1626101313"></script>
+    <script src="/js/jquery-3.3.1.min.js?1626164754"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -12478,10 +12478,15 @@
   <ul>
     <li><a href="#coding-standards">Coding standards</a>
       <ul>
-        <li><a href="#general-conventions">General conventions</a></li>
+        <li><a href="#general-conventions">General conventions</a>
+          <ul>
+            <li><a href="#code-documentation">Code documentation</a></li>
+          </ul>
+        </li>
         <li><a href="#php-code-conventions">PHP code conventions</a>
           <ul>
             <li><a href="#making-your-code-follow-our-coding-standards">Making your code follow our coding standards</a></li>
+            <li><a href="#documenting-types">Documenting types</a></li>
             <li><a href="#strict-typing">Strict typing</a></li>
             <li><a href="#deprecations">Deprecations</a></li>
           </ul>
@@ -19865,6 +19870,15 @@
 <li>Use the Unix LF (linefeed) line ending.</li>
 <li>End with a single blank line.</li>
 </ul>
+<h3 id="code-documentation">Code documentation</h3>
+<p>Make sure that <strong>classes</strong>, <strong>attributes</strong> and <strong>methods</strong> are properly documented using doc blocks, regardless of visibility. As a rule of thumb, consider that a developer should be able to understand a component and use it without even having to read the source code – signatures and doc blocks should suffice for most cases.</p>
+<p>Pay particular attention to the following:</p>
+<ul>
+<li><strong>Describe the class&rsquo;s purpose.</strong> If you have a hard time describing what the class is meant for, it may be a sign that it has too many responsibilites and needs to be decomposed.</li>
+<li><strong>Describe intent, not implementation.</strong> Explain what the method/class is for, not how it performs it—unless that information is important for the developer using it.</li>
+<li><strong>Document attributes, parameters and return values both in type and semantics.</strong> A variable named <code>$content</code> might be obviously a string, but we need more context to understand what its purpose is.</li>
+<li><strong>It is preferable to waste time describing the obvious than to leave the ambiguous open to interpretation.</strong> This prevents more bugs than you can imagine.</li>
+</ul>
 <h2 id="php-code-conventions">PHP code conventions</h2>
 <p>PHP files MUST follow the <a href="https://www.php-fig.org/psr/psr-2/">PSR-2 standard</a> alongside <a href="https://symfony.com/doc/3.4/contributing/code/standards.html#structure">Symfony standards</a>.</p>
 
@@ -19875,6 +19889,19 @@
 <p>You can run it using the following command:</p>
 <div class="highlight"><pre class="chroma"><code class="language-bash" data-lang="bash">php ./vendor/bin/php-cs-fixer fix
 </code></pre></div><p>The prestashop specific configuration file <a href="https://github.com/PrestaShop/PrestaShop/blob/develop/.php_cs.dist">can be found here</a>. Also, you can also use the provided <a href="https://github.com/PrestaShop/PrestaShop/tree/develop/.github/contrib">git pre-commit</a> sample in order to make sure you never forget to make your code compliant!</p>
+<h3 id="documenting-types">Documenting types</h3>
+<p>Parameters and return values SHOULD be described using Phpdoc as <a href="https://phpstan.org/writing-php-code/phpdoc-types">documented by Phpstan</a>, especially when the type cannot be strictly defined using PHP types (e.g. collections, structs, mixed types).</p>
+<p>Example:</p>
+<div class="highlight"><pre class="chroma"><code class="language-php" data-lang="php"><span class="sd">/**
+</span><span class="sd"> * @var string[] Collection of IETF language tag (eg. &#34;en-US&#34;)
+</span><span class="sd"> */</span>
+<span class="k">public</span> <span class="nv">$locales</span><span class="p">;</span>
+</code></pre></div><p>Particular attention should be paid to documenting arrays and array structures:</p>
+<ul>
+<li>Use the simplified syntax for collections, like <code>string[]</code> or <code>SomeType[]</code>.</li>
+<li>If the array&rsquo;s index is relevant (e.g., non-sequential), use the generics-style annotation, like <code>array&lt;int, string&gt;</code>.</li>
+<li>If the array is actually a struct (i.e. an associative array whose schema is known), then it MUST be described it using the <a href="https://phpstan.org/writing-php-code/phpdoc-types#array-shapes">array shape annotation</a>, like <code>array{'foo': int, &quot;bar&quot;: string}</code>.</li>
+</ul>
 <h3 id="strict-typing">Strict typing</h3>
 
 <div class="magic-version-pill" data-version="1.7.7" data-title="New in PrestaShop 1.7.7"></div>
@@ -20006,9 +20033,9 @@ Mark is the creator of the <a href="https://getbootstrap.com/">Bootstrap framewo
 <footer class="article-footer">
   
 <div>
-  Last updated on June 10, 2021
+  Last updated on July 12, 2021
   :
-  <a href="https://github.com/PrestaShop/docs/commit/6b010180a7904c02f1b39bf27917e7e60e264d64">"Explain how deprecate a service" (6b010180a)</a>
+  <a href="https://github.com/PrestaShop/docs/commit/6aeedb29927cceca26d80bf4e31ef0c82159cf99">"Add code documentation and PHP type documentation to code standards" (6aeedb299)</a>
   
 </div>
 
@@ -20029,19 +20056,19 @@ Mark is the creator of the <a href="https://getbootstrap.com/">Bootstrap framewo
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1626101313"></script>
-    <script src="/js/perfect-scrollbar.min.js?1626101313"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1626101313"></script>
-    <script src="/js/jquery.sticky.js?1626101313"></script>
-    <script src="/js/featherlight.min.js?1626101313"></script>
-    <script src="/js/html5shiv-printshiv.min.js?1626101313"></script>
-    <script src="/js/modernizr.custom-3.6.0.js?1626101313"></script>
-    <script src="/js/learn.js?1626101313"></script>
-    <script src="/js/hugo-learn.js?1626101313"></script>
+    <script src="/js/clipboard.min.js?1626164754"></script>
+    <script src="/js/perfect-scrollbar.min.js?1626164754"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1626164754"></script>
+    <script src="/js/jquery.sticky.js?1626164754"></script>
+    <script src="/js/featherlight.min.js?1626164754"></script>
+    <script src="/js/html5shiv-printshiv.min.js?1626164754"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1626164754"></script>
+    <script src="/js/learn.js?1626164754"></script>
+    <script src="/js/hugo-learn.js?1626164754"></script>
     
-    <script src="/main.js?1626101313"></script>
-    <link href="/mermaid/mermaid.css?1626101313" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1626101313"></script>
+    <script src="/main.js?1626164754"></script>
+    <link href="/mermaid/mermaid.css?1626164754" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1626164754"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
