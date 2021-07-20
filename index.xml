@@ -535,8 +535,8 @@ With widgets, module developers can display content everywhere the module is ask
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/modules/creation/adding-configuration-page/</guid>
-      <description>Adding a configuration page Your module can get a &amp;ldquo;Configure&amp;rdquo; link in the back office module list, and therefore let the user change some settings. This &amp;ldquo;Configure&amp;rdquo; link appears with addition of the getContent() method to your main class. This is a standard PrestaShop method: its sole existence sends a message to the back office, saying &amp;ldquo;there&amp;rsquo;s a configuration page in this module, display the configuration link&amp;rdquo;.
-But having a getContent() public method in the MyModule object only makes the &amp;ldquo;Configure&amp;rdquo; link appear; it does not create the configuration page out of nowhere.</description>
+      <description>Adding a configuration page Modules usually provide a dedicated configuration page, accessible through a &amp;ldquo;Configure&amp;rdquo; button in the Module Manager list, that allows the shop&amp;rsquo;s administrator to set up any options provided by the module.
+In difference with other controllers, the content of configuration page is handled directly in the module&amp;rsquo;s main class by the getContent() public method. PrestaShop will check if this method exists and will only display the &amp;ldquo;Configure&amp;rdquo; button if this method is declared.</description>
     </item>
     
     <item>
