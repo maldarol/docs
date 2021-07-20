@@ -2507,9 +2507,9 @@ Using router via Link::getUrlSmarty  &amp;lt;?php use Link; // Generate url with
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://devdocs.prestashop.com/1.7/development/components/helpers/helperform/</guid>
-      <description>The HelperForm class This helper is used to generate an edition form for an object of type ObjectModel. Example: editing the client&amp;rsquo;s profile.
-Form declaration Fields inside [brackets] are optional as per the HTML standard. Values between {curly braces} list the possible values for this field.
-$this-&amp;gt;fields_form = array( &amp;#39;legend&amp;#39; =&amp;gt; array( &amp;#39;title&amp;#39; =&amp;gt; $this-&amp;gt;l(&amp;#39;Edit carrier&amp;#39;), // This is the name of the fieldset, which can contain many option fields  &amp;#39;image&amp;#39; =&amp;gt; &amp;#39;.</description>
+      <description>The HelperForm component This helper can used to generate HTML forms easily.
+Note that HelperForm is based on Smarty and Bootstrap 3, and therefore is discouraged in Symfony controllers. Basic usage Removing all the optional fields, this is how to build a basic HelperForm element:
+$helper = new HelperForm(); $form = [ [ &amp;#39;form&amp;#39; =&amp;gt; [ &amp;#39;legend&amp;#39; =&amp;gt; [ &amp;#39;title&amp;#39; =&amp;gt; $this-&amp;gt;l(&amp;#39;Edit carrier&amp;#39;), &amp;#39;icon&amp;#39; =&amp;gt; &amp;#39;icon-cogs&amp;#39; ], &amp;#39;input&amp;#39; =&amp;gt; [ [ &amp;#39;type&amp;#39; =&amp;gt; &amp;#39;text&amp;#39;, &amp;#39;name&amp;#39; =&amp;gt; &amp;#39;shipping_method&amp;#39;, ], ], &amp;#39;submit&amp;#39; =&amp;gt; [ &amp;#39;title&amp;#39; =&amp;gt; $this-&amp;gt;l(&amp;#39;Save&amp;#39;), &amp;#39;class&amp;#39; =&amp;gt; &amp;#39;btn btn-default pull-right&amp;#39; ], ], ], ]; $helper-&amp;gt;generateForm($form); This specific code generates this HTML code:</description>
     </item>
     
     <item>
