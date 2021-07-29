@@ -23,7 +23,7 @@ First, create the module&amp;rsquo;s folder, in PrestaShop&amp;rsquo;s /modules 
       
       <guid>https://devdocs.prestashop.com/1.7/modules/creation/module-file-structure/</guid>
       <description>Module file structure A module is made of a lot of files, all stored in a folder that bears the same name as the module, that folder being in turn stored in the /modules folder at the root of the main PrestaShop folder: /modules/&amp;lt;modulename&amp;gt;/.
-Your module can be called anything, as long as it only contains lowercase letters and numbers (/[a-z0-9]/). A module distributed in a zip archive file must also be placed in a subfolder within the zip file.</description>
+Your module can be called anything, as long as it only contains lowercase letters and numbers (/[a-z0-9]/). Although accepted, we strongly discourage using underscores (_) because they don&amp;rsquo;t work with translation domains.</description>
     </item>
     
     <item>
